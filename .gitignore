@@ -1,0 +1,17 @@
+# Original, full-size media (about 500 MB). The site uses the optimised copies in assets/img.
+# Run tools/optimise_images.py after changing anything here.
+content/
+
+# Output of tools/Capture-Devices.
+screenshots/
+
+# Layout concepts with made-up placeholder content. Kept locally for reference, not published.
+concepts/
+
+# Python and editor files.
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
