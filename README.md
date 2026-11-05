@@ -36,7 +36,7 @@ The site uses only the information in `content/ReadMe.txt`, Jonty's LinkedIn pro
 ## Project structure
 
 ```
-index.html               Home page: splash, featured, about, experience, projects, level design, contact
+index.html               Home page: splash, featured, about, experience, projects, contact
 projects/                One page per project
 404.html                 "Page not found" page for GitHub Pages
 assets/css/              tokens.css, base.css, layout.css, components.css
