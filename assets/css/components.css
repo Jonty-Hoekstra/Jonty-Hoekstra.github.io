@@ -860,55 +860,85 @@
   }
 }
 
-/* === Gallery === */
+/* === Gallery: project-piece layout ===
+   A full-width image, then a split pair, repeating. Full-width images run into the page gutters.
+   Every image opens in the lightbox. Phones show everything full width. */
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
-  gap: var(--space-m);
-}
-
-.gallery--wide {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  gap: var(--space-s);
 }
 
 .gallery__item {
-  background: var(--colour-card);
-  border: 1px solid var(--colour-line);
+  position: relative;
+  overflow: hidden;
+  margin-inline: calc(var(--main-gutter) * -1);
+  background: var(--colour-bg-raised);
 }
 
 .gallery__open {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: var(--colour-bg-raised);
 }
 
 .gallery__open img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease-out);
+  transition: transform 0.8s var(--ease-out), filter 0.3s;
 }
 
 .gallery__caption {
-  padding: var(--space-s) var(--space-m);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: var(--space-xl) var(--space-l) var(--space-m);
+  background: linear-gradient(rgba(8, 8, 12, 0), rgba(8, 8, 12, 0.94) 55%);
   font-family: var(--font-display);
   font-weight: 600;
+  pointer-events: none;
 }
 
 .gallery__caption small {
   display: block;
+  max-width: 40rem;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: 400;
-  color: var(--colour-text-muted);
+  color: #c9c9d6;
+}
+
+@media (min-width: 40rem) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery__item {
+    margin-inline: 0;
+  }
+
+  .gallery__item:nth-child(3n + 1),
+  .gallery__item:nth-child(3n + 2):last-child {
+    grid-column: 1 / -1;
+    margin-inline: calc(var(--main-gutter) * -1);
+  }
+
+  .gallery__item:not(:nth-child(3n + 1)) .gallery__open {
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery__item:nth-child(3n + 2):last-child .gallery__open {
+    aspect-ratio: 16 / 9;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .gallery__open:hover img {
-    transform: scale(1.04);
+    transform: scale(1.03);
+    filter: brightness(1.08);
   }
 }
 
@@ -1113,13 +1143,17 @@
 
 .project-hero {
   aspect-ratio: 16 / 9;
+  margin-inline: calc(var(--main-gutter) * -1);
   margin-bottom: var(--space-2xl);
+  border-inline: 0;
 }
 
 /* Animations are only 800px wide: show them at their own size, not stretched. */
 .project-hero--natural {
   width: fit-content;
   aspect-ratio: auto;
+  margin-inline: 0;
+  border-inline: 1px solid var(--colour-line);
 }
 
 .project-hero--natural img {
@@ -1288,5 +1322,165 @@
 
   .change__arrow {
     display: block;
+  }
+}
+
+/* === Notice: stands in for images on professional projects (NDA or not yet added) === */
+
+.notice {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-s);
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-2xl) var(--space-l);
+  text-align: center;
+  background:
+    linear-gradient(var(--colour-line) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, var(--colour-line) 1px, transparent 1px) 0 0 / 32px 32px,
+    var(--colour-card);
+  border: 1px solid var(--colour-line);
+}
+
+.notice--locked {
+  border-color: var(--colour-accent);
+}
+
+.notice__icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  background: var(--colour-bg);
+  border: 1px solid var(--colour-line);
+  color: var(--colour-accent);
+}
+
+.notice__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.notice--locked .notice__icon {
+  border-color: var(--colour-accent);
+}
+
+.notice__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  color: var(--colour-accent);
+}
+
+.notice__title {
+  font-size: var(--text-heading);
+}
+
+.notice__text {
+  max-width: 32rem;
+  margin-bottom: var(--space-s);
+  color: var(--colour-text-muted);
+}
+
+/* === Detail cards: grouped responsibilities on professional projects === */
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--space-m);
+}
+
+.detail-card {
+  padding: var(--space-l);
+  background: var(--colour-card);
+  border: 1px solid var(--colour-line);
+  border-top: 2px solid var(--colour-accent);
+}
+
+.detail-card__title {
+  margin-bottom: var(--space-s);
+  font-size: var(--text-xl);
+}
+
+.detail-card .experience__list {
+  color: var(--colour-text-muted);
+}
+
+.project-header__actions {
+  align-items: center;
+  margin-top: var(--space-l);
+}
+
+.project-header__hint {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--colour-text-muted);
+}
+
+/* === Project groups and NDA cards === */
+
+.project-group {
+  margin: var(--space-2xl) 0 var(--space-m);
+  padding-bottom: var(--space-s);
+  border-bottom: 1px solid var(--colour-text-muted);
+  font-size: var(--text-xl);
+  color: var(--colour-accent);
+}
+
+.section-heading + .project-group {
+  margin-top: 0;
+}
+
+.project-group__detail {
+  display: block;
+  margin-top: var(--space-2xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--colour-text-muted);
+}
+
+.project-card__media--nda {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-s);
+  background:
+    linear-gradient(var(--colour-line) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, var(--colour-line) 1px, transparent 1px) 0 0 / 24px 24px,
+    var(--colour-bg-raised);
+}
+
+.project-card__lock {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  background: var(--colour-bg);
+  border: 1px solid var(--colour-accent);
+  color: var(--colour-accent);
+}
+
+.project-card__lock svg {
+  width: 24px;
+  height: 24px;
+}
+
+.project-card__nda {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  color: var(--colour-accent);
+}
+
+/* Four cards: two by two, then one row on wide screens, so no card sits alone. */
+@media (min-width: 40rem) {
+  .card-grid--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 80rem) {
+  .card-grid--four {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

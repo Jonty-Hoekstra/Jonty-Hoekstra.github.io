@@ -273,7 +273,8 @@
 }
 
 main {
-  padding: 6.5rem var(--space-l) var(--space-2xl);
+  --main-gutter: var(--space-l);
+  padding: 6.5rem var(--main-gutter) var(--space-2xl);
 }
 
 @media (min-width: 60rem) {
@@ -305,10 +306,12 @@ main {
     margin-top: auto;
   }
 
+  /* The content column centres in the space beside the panel once that space is wider than it needs. */
   main {
-    max-width: calc(var(--content-max) + var(--panel-width));
+    --main-gutter: clamp(1.5rem, 5vw, 4.5rem);
     margin-left: var(--panel-width);
-    padding: var(--space-3xl) clamp(1.5rem, 5vw, 4.5rem) var(--space-2xl);
+    padding: var(--space-3xl) var(--main-gutter) var(--space-2xl);
+    padding-inline: max(var(--main-gutter), calc((100vw - var(--panel-width) - var(--content-max)) / 2));
   }
 }
 
