@@ -20,6 +20,8 @@ STILL_WIDTHS = (640, 1280, 1920)
 STILL_QUALITY = 80
 ANIMATION_MAX_WIDTH = 800
 ANIMATION_QUALITY = 70
+# Ability clips show as small tiles, so they are smaller to keep the page light.
+ABILITY_WIDTH = 520
 
 # Output folder, output name, source file (relative to content/), and optional widths.
 STILLS = [
@@ -28,6 +30,31 @@ STILLS = [
     ('vfx-material-showcase', 'reel-poster', 'VFX & Material Showcase/reel-thumbnail.jpg'),
     ('mythos-party', 'map-1', 'MythosParty/Mythos Map 1.png'),
     ('mythos-party', 'map-2', 'MythosParty/Mythos Map 2.png'),
+    ('mythos-party', 'gameplay-00003', 'MythosParty/alex-coultas-highresscreenshot00003.jpg'),
+    ('mythos-party', 'gameplay-00004', 'MythosParty/alex-coultas-highresscreenshot00004.jpg'),
+    ('mythos-party', 'gameplay-00007', 'MythosParty/alex-coultas-highresscreenshot00007.jpg'),
+    ('mythos-party', 'gameplay-00010', 'MythosParty/alex-coultas-highresscreenshot00010.jpg'),
+    ('mythos-party', 'gameplay-00013', 'MythosParty/alex-coultas-highresscreenshot00013.jpg'),
+    ('mythos-party', 'gameplay-00015', 'MythosParty/alex-coultas-highresscreenshot00015.jpg'),
+    ('mythos-party', 'gameplay-00018', 'MythosParty/alex-coultas-highresscreenshot00018.jpg'),
+    # Thumbnails of the YouTube videos, used as click-to-play posters.
+    ('mythos-party', 'trailer-poster', 'MythosParty/video-FwoVMOu09Bg.jpg'),
+    ('mythos-party', 'pre-alpha-poster', 'MythosParty/video-4_IFLiO7ObI.jpg'),
+    ('mythos-party', 'capsule-art', 'MythosParty/Mythos_Party_Capsule_Art_Revised.png'),
+    ('mythos-party', 'trailer-2019-poster', 'MythosParty/video-eAPEBaGp2xk.jpg'),
+    ('mythos-party', 'early-00008', 'MythosParty/Old Content (from uni)/HighresScreenshot00008.png'),
+    ('mythos-party', 'early-00025', 'MythosParty/Old Content (from uni)/HighresScreenshot00025.png'),
+    ('mythos-party', 'early-00029', 'MythosParty/Old Content (from uni)/HighresScreenshot00029.png'),
+    ('mythos-party', 'early-00031', 'MythosParty/Old Content (from uni)/HighresScreenshot00031.png'),
+    ('mythos-party', 'early-00032', 'MythosParty/Old Content (from uni)/HighresScreenshot00032.png'),
+    ('mythos-party', 'early-00033', 'MythosParty/Old Content (from uni)/HighresScreenshot00033.png'),
+    ('mythos-party', 'early-00034', 'MythosParty/Old Content (from uni)/HighresScreenshot00034.png'),
+    ('mythos-party', 'early-00035', 'MythosParty/Old Content (from uni)/HighresScreenshot00035.png'),
+    ('mythos-party', 'early-00036', 'MythosParty/Old Content (from uni)/HighresScreenshot00036.png'),
+    ('mythos-party', 'early-00037', 'MythosParty/Old Content (from uni)/HighresScreenshot00037.png'),
+    ('mythos-party', 'early-hud-1', 'MythosParty/Old Content (from uni)/Desktop Screenshot 2019.11.15 - 13.35.36.74.png'),
+    ('mythos-party', 'early-hud-2', 'MythosParty/Old Content (from uni)/Desktop Screenshot 2019.11.15 - 13.36.39.49.png'),
+    ('mythos-party', 'early-hud-3', 'MythosParty/Old Content (from uni)/Desktop Screenshot 2019.11.15 - 13.39.51.75.png'),
     ('solace', 'set-dressing', 'Solace/Personal_Project-SetDressing.png'),
     ('solace', 'current-build', 'Solace/image 109.png'),
     ('solace', 'engine-prototype', 'Solace/Group 415.png'),
@@ -56,6 +83,15 @@ ANIMATIONS = [
     ('solace', 'spline-roots', 'Solace/Personal_Project_Dynamic_Spline_Roots.gif'),
     ('solace', 'ship-animation', 'Solace/Personal_Project_Ship_Animation.gif'),
     ('solace', 'tile-animation', 'Solace/Personal_Project_Tile_Animation.gif'),
+    ('mythos-party', 'ability-ares', 'MythosParty/ARESwithparticlewEAS.gif', ABILITY_WIDTH),
+    ('mythos-party', 'ability-artemis', 'MythosParty/ArtemisNewhegsss.gif', ABILITY_WIDTH),
+    ('mythos-party', 'ability-bubble-bomb', 'MythosParty/BubbleBombThin!.gif', ABILITY_WIDTH),
+    ('mythos-party', 'ability-link', 'MythosParty/DogCollar3.gif', ABILITY_WIDTH),
+    ('mythos-party', 'ability-geyser', 'MythosParty/GyserVFX.gif', ABILITY_WIDTH),
+    ('mythos-party', 'ability-hercules', 'MythosParty/HerculesDoneF.gif', ABILITY_WIDTH),
+    ('mythos-party', 'ability-home-run', 'MythosParty/HomeRun.gif', ABILITY_WIDTH),
+    ('mythos-party', 'ability-nyx', 'MythosParty/NyxApbea.gif', ABILITY_WIDTH),
+    ('mythos-party', 'peaceful-day', 'MythosParty/PeacefuldayVol2smol.gif'),
 ]
 
 
@@ -82,9 +118,9 @@ def save_still(folder, name, source, step_widths=STILL_WIDTHS):
     print(f'{folder}/{name}: widths {widths}, largest {largest.width}x{largest.height}')
 
 
-def save_animation(folder, name, source):
+def save_animation(folder, name, source, max_width=ANIMATION_MAX_WIDTH):
     animation = Image.open(CONTENT / source)
-    width = min(animation.width, ANIMATION_MAX_WIDTH)
+    width = min(animation.width, max_width)
     frames, durations = [], []
     for frame in ImageSequence.Iterator(animation):
         durations.append(frame.info.get('duration', 70))
@@ -107,7 +143,7 @@ PREVIEWS = [
     ('home', 'Spaceship Level/HighresScreenshot00027.png'),
     ('spaceship-level', 'Spaceship Level/HighresScreenshot00023.png'),
     ('solace', 'Solace/Personal_Project_Tile_Animation.gif'),
-    ('mythos-party', 'MythosParty/Mythos Map 1.png'),
+    ('mythos-party', 'MythosParty/Mythos_Party_Capsule_Art_Revised.png'),
     ('game-jam-map', 'Game Jam/GameJamMap.gif'),
     ('cathedral-scene', 'Cathedral Scene (WIP)/HighresScreenshot00035.png'),
     ('vfx-material-showcase', 'VFX & Material Showcase/reel-thumbnail.jpg'),
@@ -135,8 +171,8 @@ def save_preview(name, source):
 def main():
     for still in STILLS:
         save_still(*still)
-    for folder, name, source in ANIMATIONS:
-        save_animation(folder, name, source)
+    for animation in ANIMATIONS:
+        save_animation(*animation)
     for name, source in PREVIEWS:
         save_preview(name, source)
 

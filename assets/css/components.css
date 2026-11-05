@@ -1484,3 +1484,158 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* === Thumbnail tiles, with a "+N more" tile (show-more.js) === */
+
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xs);
+}
+
+.thumbs__item[hidden] {
+  display: none;
+}
+
+.thumbs__open,
+.thumbs__more {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--colour-bg-raised);
+}
+
+.thumbs__open img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out), filter 0.3s;
+}
+
+.thumbs__number {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  padding: 0 var(--space-xs);
+  background: rgba(11, 11, 16, 0.85);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.thumbs__more {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  background:
+    linear-gradient(var(--colour-line) 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, var(--colour-line) 1px, transparent 1px) 0 0 / 20px 20px,
+    var(--colour-card);
+  border: 1px solid var(--colour-accent);
+  color: var(--colour-accent);
+}
+
+.thumbs__more-count {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-heading);
+  line-height: 1;
+}
+
+.thumbs__more-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .thumbs__open:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  .thumbs__more:hover {
+    background-color: var(--colour-card-raised);
+  }
+}
+
+@media (min-width: 40rem) {
+  .thumbs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 60rem) {
+  .thumbs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* === Spread: an image beside a block of text, for telling the story of a project === */
+
+.spread {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.spread__media {
+  position: relative;
+  margin-inline: calc(var(--main-gutter) * -1);
+  overflow: hidden;
+}
+
+.spread__media .gallery__open {
+  aspect-ratio: 4 / 3;
+}
+
+.spread__title {
+  margin: var(--space-xs) 0 var(--space-l);
+  font-size: var(--text-title);
+}
+
+.spread__text p:not(.eyebrow) {
+  margin-bottom: var(--space-m);
+  font-size: var(--text-l);
+  color: var(--colour-text-muted);
+}
+
+@media (min-width: 60rem) {
+  .spread {
+    grid-template-columns: 1.15fr 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .spread__media {
+    margin-inline: calc(var(--main-gutter) * -1) 0;
+  }
+}
+
+/* A video shown inside a section rather than at the top of the page. */
+.video-feature {
+  aspect-ratio: 16 / 9;
+  margin-inline: calc(var(--main-gutter) * -1);
+  border-inline: 0;
+}
+
+/* Extra space between a video, a gallery and tiles in the same section. */
+.gallery--spaced,
+.thumbs--spaced {
+  margin-top: var(--space-s);
+}
+
+.video-feature + .gallery--spaced {
+  margin-top: var(--space-s);
+}
+
+.thumbs__open picture,
+.thumbs__open picture img {
+  width: 100%;
+  height: 100%;
+}
+
+.thumbs__open picture img {
+  object-fit: cover;
+}
