@@ -11,7 +11,7 @@ Open `index.html` in a browser. Everything works from the file system.
 1. Push this folder to a GitHub repository. The folders `content/`, `concepts/` and `screenshots/` are in `.gitignore` and stay on your PC.
 2. On GitHub, open **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to *Deploy from a branch*, the branch to `main`, and the folder to `/ (root)`. Select **Save**.
-4. After a minute or two, the site is live at `https://<username>.github.io/<repository>/`. If the repository is named `<username>.github.io`, the site is at `https://<username>.github.io/`.
+4. After a minute or two, the site is live at `https://jonty-hoekstra.github.io/` (repository name `jonty-hoekstra.github.io`). In general, the address is `https://<username>.github.io/<repository>/`. If the repository is named `<username>.github.io`, the site is at `https://<username>.github.io/`.
 
 - All links and image paths are relative, so the site works at either address.
 - `.nojekyll` tells GitHub Pages to serve the files as they are.
@@ -21,13 +21,10 @@ Open `index.html` in a browser. Everything works from the file system.
 
 The site uses only the information in `content/ReadMe.txt`, Jonty's LinkedIn profile and the files in `content/`. Search the HTML for `TODO` to find each gap.
 
-- [ ] **Email address** — replace `your.email@example.com` (side panel on every page, and the Contact section).
-- [ ] **CV** — add it as `assets/docs/cv.pdf`, then uncomment the "Download CV" link in the side panel of each page.
-- [ ] **VFX & Material Showcase video** — replace the placeholder in `projects/vfx-material-showcase.html` (the `TODO` comment there shows the code for YouTube, Vimeo or a short MP4). Optionally add a still for its card on the home page.
+- [ ] **Degree dates** — LinkedIn says 2017–2019; the CV says 2020 (graduation year?). The site shows 2017–2019.
 - [ ] **NDA title screenshots** — `ReadMe.txt` mentions them, but the folder is not in `content/` yet.
 - [ ] **Cathedral Scene** — a short description of the project (`projects/cathedral-scene.html`).
 - [ ] **Showreel** — optional. If there is one, host it on YouTube or Vimeo and link it from the Featured section.
-- [ ] **Link preview image** — once the site address is known, add `<meta property="og:image" content="https://.../assets/img/spaceship-level/shot-27-1280.webp">` to each page head, with the full address.
 
 ## Add or change a project
 

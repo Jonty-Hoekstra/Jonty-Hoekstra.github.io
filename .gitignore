@@ -15,3 +15,7 @@ __pycache__/
 .idea/
 Thumbs.db
 .DS_Store
+
+# Jonty's full CV has a home address, phone number and referees' details. Never publish it.
+# The public CV is assets/Docs/jonty-hoekstra-cv.pdf (no address, phone number or references).
+assets/[Dd]ocs/Jonty Hoekstra - CV*.pdf

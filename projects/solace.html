@@ -4,11 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Solace — Jonty Hoekstra, Game &amp; Level Designer</title>
-  <meta name="description" content="Solace: Jonty's current personal project, designed and implemented solo in Unreal Engine, with tech art, splines and animation.">
+  <meta name="description" content="Solace: a cosy puzzle strategy game in Unreal Engine by JellyFish &amp; Giants, with Jonty Hoekstra as creative lead and programmer.">
   <meta name="theme-color" content="#0b0b10">
   <meta property="og:title" content="Solace — Jonty Hoekstra, Game &amp; Level Designer">
-  <meta property="og:description" content="Solace: Jonty's current personal project, designed and implemented solo in Unreal Engine, with tech art, splines and animation.">
+  <meta property="og:description" content="Solace: a cosy puzzle strategy game in Unreal Engine by JellyFish &amp; Giants, with Jonty Hoekstra as creative lead and programmer.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jonty-hoekstra.github.io/projects/solace.html">
+  <meta property="og:site_name" content="Jonty Hoekstra">
+  <meta property="og:image" content="https://jonty-hoekstra.github.io/assets/img/previews/solace.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Glowing coloured roots across a cluster of floating tiles, from the current build of Solace">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://jonty-hoekstra.github.io/projects/solace.html">
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/base.css">
@@ -25,7 +33,7 @@
     <span><span class="panel__name">JONTY</span><span class="panel__role">// game &amp; level designer</span></span>
   </a>
   <ul class="panel__focus" aria-label="Focus">
-    <li>Level design</li><li>Unreal Engine</li><li>Blockout</li><li>Hardening</li><li>Tech art</li><li>VFX</li>
+    <li>Level design</li><li>Unreal Engine</li><li>Blockout</li><li>Tech art</li><li>VFX</li>
   </ul>
   <nav class="panel__nav" aria-label="Sections">
     <ul class="panel-nav" data-panel-nav>
@@ -40,10 +48,9 @@
   </nav>
   <div class="panel__progress" aria-hidden="true"><span class="panel__progress-fill" data-panel-progress></span></div>
   <div class="panel__footer">
-    <!-- TODO: add the CV as assets/docs/cv.pdf, then uncomment this link.
-    <a class="button" href="../assets/docs/cv.pdf">Download CV ↓</a> -->
+    <a class="button" href="../assets/Docs/jonty-hoekstra-cv.pdf" target="_blank" rel="noopener">Download CV ↓</a>
     <div class="panel__links">
-      <a href="mailto:your.email@example.com">Email</a><!-- TODO: real email address -->
+      <a href="mailto:jontyhoekstra@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/jonty-hoekstra-242988165/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
@@ -52,17 +59,74 @@
 <main id="main">
   <header class="project-header reveal">
     <a class="back-link" href="../index.html#projects">← All projects</a>
-    <p class="eyebrow">PERSONAL PROJECT · IN DEVELOPMENT</p>
+    <p class="eyebrow">JELLYFISH &amp; GIANTS · IN DEVELOPMENT</p>
     <h1 class="project-header__title" data-scramble>Solace</h1>
-    <p class="project-header__intro">My current personal project. I designed and implemented everything in it.</p>
-    <ul class="facts"><li class="facts__item"><span class="facts__label">Type</span>Personal project</li><li class="facts__item"><span class="facts__label">Role</span>Design &amp; implementation</li><li class="facts__item"><span class="facts__label">Shows</span>Tech art &amp; animation</li><li class="facts__item"><span class="facts__label">Engine</span>Unreal Engine</li></ul>
+    <p class="project-header__intro">A cosy puzzle strategy game about building a new home for a colony of spacefaring woodland Nomes. As the Nome Architect, you place and rotate terrain tiles to grow the roots of the World Tree, and rearrange your layout each turn to meet changing goals.</p>
+    <p class="project-header__intro">Solace is made by JellyFish &amp; Giants, the studio I founded. I'm the creative lead and programmer, and I designed and implemented the game's systems.</p>
+    <ul class="facts"><li class="facts__item"><span class="facts__label">Role</span>Creative lead &amp; programmer</li><li class="facts__item"><span class="facts__label">Studio</span>JellyFish &amp; Giants</li><li class="facts__item"><span class="facts__label">Genre</span>Cosy puzzle strategy</li><li class="facts__item"><span class="facts__label">Engine</span>Unreal Engine</li></ul>
   </header>
 
-    <p class="note reveal">Solace is still missing a lot of its gameplay communication, so it can be hard to follow. These clips are here mainly to show the technical work.</p>
-  <figure class="media project-hero project-hero--natural wipe reveal"><picture><source srcset="../assets/img/solace/tile-animation.webp" type="image/webp" media="(prefers-reduced-motion: no-preference)"><img src="../assets/img/solace/tile-animation-poster.webp" width="800" height="552" alt="Glowing paths animate across a grid of floating tiles in space" fetchpriority="high" decoding="async"></picture></figure>
+  <figure class="media project-hero project-hero--natural wipe reveal"><picture><source srcset="../assets/img/solace/tile-animation.webp" type="image/webp" media="(prefers-reduced-motion: no-preference)"><img src="../assets/img/solace/tile-animation-poster.webp" width="800" height="552" alt="High-angle view: glowing coloured roots animate across a cluster of floating tiles in space" fetchpriority="high" decoding="async"></picture></figure>
 
-  <section class="section" id="gallery">
-    <div class="section-heading reveal"><span class="section-heading__index">01</span><h2 class="section-heading__title" data-scramble>Clips</h2><span class="section-heading__rule"></span></div>
+  <section class="section" id="pillars">
+    <div class="section-heading reveal"><span class="section-heading__index">01</span><h2 class="section-heading__title" data-scramble>Design pillars</h2><span class="section-heading__rule"></span></div>
+    <div class="pillars">
+      <div class="pillar reveal"><h3 class="pillar__title">Agency</h3><p>Paper playtests showed that players enjoy the game most when their choices, not luck, decide the outcome. The game rewards strategic decisions, so players improve from run to run.</p></div>
+      <div class="pillar reveal"><h3 class="pillar__title">Overlapping objectives</h3><p>Simple mechanics layer into competing goals: match root colours, group biomes, meet tile goals and explore the board. That gives a low skill floor and a high skill ceiling.</p></div>
+      <div class="pillar reveal"><h3 class="pillar__title">Challenge without conflict</h3><p>No combat and no harm to anyone. The challenge comes from cultivation, protection and growth, for players who prefer a calm game.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="section-heading reveal"><span class="section-heading__index">02</span><h2 class="section-heading__title" data-scramble>From paper to engine</h2><span class="section-heading__rule"></span></div>
+    <div class="gallery gallery--wide" data-gallery>
+      <figure class="gallery__item reveal">
+        <a class="gallery__open" href="../assets/img/solace/paper-prototype-683.webp" data-lightbox="Solace · Paper prototype"><img src="../assets/img/solace/paper-prototype-683.webp" srcset="../assets/img/solace/paper-prototype-640.webp 640w, ../assets/img/solace/paper-prototype-683.webp 683w" sizes="(min-width: 60rem) 30vw, (min-width: 40rem) 50vw, 100vw" width="683" height="911" alt="Paper tiles with coloured root lines laid out on a wooden table, around two core tiles" loading="lazy" decoding="async"></a>
+        <figcaption class="gallery__caption"><span class="step-number">1</span>Paper prototype<small>Six months of paper prototyping and playtests shaped the core mechanics.</small></figcaption>
+      </figure>
+      <figure class="gallery__item reveal">
+        <a class="gallery__open" href="../assets/img/solace/power-rule-763.webp" data-lightbox="Solace · The power rule"><img src="../assets/img/solace/power-rule-763.webp" srcset="../assets/img/solace/power-rule-640.webp 640w, ../assets/img/solace/power-rule-763.webp 763w" sizes="(min-width: 60rem) 30vw, (min-width: 40rem) 50vw, 100vw" width="763" height="715" alt="Diagram of roots on a grid: tiles connected to the Tree are powered, the rest are not" loading="lazy" decoding="async"></a>
+        <figcaption class="gallery__caption"><span class="step-number">2</span>The power rule<small>Roots that touch the World Tree are powered, and carry energy along matching colours.</small></figcaption>
+      </figure>
+      <figure class="gallery__item reveal">
+        <a class="gallery__open" href="../assets/img/solace/ui-wireframe-1145.webp" data-lightbox="Solace · UI wireframe"><img src="../assets/img/solace/ui-wireframe-1145.webp" srcset="../assets/img/solace/ui-wireframe-640.webp 640w, ../assets/img/solace/ui-wireframe-1145.webp 1145w" sizes="(min-width: 60rem) 30vw, (min-width: 40rem) 50vw, 100vw" width="1145" height="840" alt="Wireframe of the game screen, with tiles placed around the Tree and a tile tray at the top" loading="lazy" decoding="async"></a>
+        <figcaption class="gallery__caption"><span class="step-number">3</span>UI wireframe<small>A minimal UI keeps the focus on the tiles. Most feedback happens in the world itself.</small></figcaption>
+      </figure>
+      <figure class="gallery__item reveal">
+        <a class="gallery__open" href="../assets/img/solace/engine-prototype-1920.webp" data-lightbox="Solace · Digital prototype"><img src="../assets/img/solace/engine-prototype-1280.webp" srcset="../assets/img/solace/engine-prototype-640.webp 640w, ../assets/img/solace/engine-prototype-1280.webp 1280w, ../assets/img/solace/engine-prototype-1920.webp 1920w" sizes="(min-width: 60rem) 30vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="1537" alt="Early digital build: glowing root lines across coloured tiles around a bright cross-shaped Tree" loading="lazy" decoding="async"></a>
+        <figcaption class="gallery__caption"><span class="step-number">4</span>Digital prototype<small>The first digital build, used to playtest the core loop with eight players.</small></figcaption>
+      </figure>
+      <figure class="gallery__item reveal">
+        <a class="gallery__open" href="../assets/img/solace/current-build-1629.webp" data-lightbox="Solace · Bringing in the visuals"><img src="../assets/img/solace/current-build-1280.webp" srcset="../assets/img/solace/current-build-640.webp 640w, ../assets/img/solace/current-build-1280.webp 1280w, ../assets/img/solace/current-build-1629.webp 1629w" sizes="(min-width: 60rem) 30vw, (min-width: 40rem) 50vw, 100vw" width="1629" height="1574" alt="Visuals going in: coloured roots glow across grass, jungle and ice tiles around the World Tree" loading="lazy" decoding="async"></a>
+        <figcaption class="gallery__caption"><span class="step-number">5</span>Bringing in the visuals<small>The art going in: biomes, glowing roots and the energy score around the World Tree.</small></figcaption>
+      </figure>
+      <figure class="gallery__item reveal">
+        <a class="gallery__open" href="../assets/img/solace/tile-animation.webp" data-lightbox="Solace · Current build"><img src="../assets/img/solace/tile-animation-poster.webp" width="800" height="552" alt="The current build from a high angle: glowing coloured roots across a cluster of floating tiles" loading="lazy" decoding="async"></a>
+        <figcaption class="gallery__caption"><span class="step-number">6</span>Current build<small>The latest build, with animated roots across the tiles. Animated · click to play.</small></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="playtesting">
+    <div class="section-heading reveal"><span class="section-heading__index">03</span><h2 class="section-heading__title" data-scramble>What playtesting changed</h2><span class="section-heading__rule"></span></div>
+    <ul class="changes">
+      <li class="change reveal"><span class="change__label">Feedback</span><p class="change__from">Blocker tiles felt too aggressive.</p><span class="change__arrow" aria-hidden="true">→</span><span class="change__label">Change</span><p class="change__to"><strong>Nebula fog.</strong> Fog covers the board, and powered tiles clear it, so the same behaviour is rewarded instead of forced.</p></li>
+      <li class="change reveal"><span class="change__label">Feedback</span><p class="change__from">Players wanted deeper tile complexity.</p><span class="change__arrow" aria-hidden="true">→</span><span class="change__label">Change</span><p class="change__to"><strong>Places of Power.</strong> Hidden special tiles to unlock and activate, with strong effects that reward skilful play.</p></li>
+      <li class="change reveal"><span class="change__label">Feedback</span><p class="change__from">Players wanted stronger long-term goals.</p><span class="change__arrow" aria-hidden="true">→</span><span class="change__label">Change</span><p class="change__to"><strong>Golden Seed and Endless modes.</strong> A concrete goal to recover the Golden Seed, and an endless mode for sprawling root networks.</p></li>
+    </ul>
+  </section>
+
+  <section class="section" id="roadmap">
+    <div class="section-heading reveal"><span class="section-heading__index">04</span><h2 class="section-heading__title" data-scramble>Roadmap</h2><span class="section-heading__rule"></span></div>
+    <p class="section-intro reveal">A six-month plan across development, marketing and art, with a build and playtest every few weeks.</p>
+    <div class="scroll-frame reveal" tabindex="0" role="region" aria-label="Solace roadmap chart, scrolls sideways">
+      <a href="../assets/img/solace/roadmap-2400.webp" target="_blank" rel="noopener"><img src="../assets/img/solace/roadmap-1280.webp" srcset="../assets/img/solace/roadmap-1280.webp 1280w, ../assets/img/solace/roadmap-2400.webp 2400w" sizes="2400px" width="2400" height="344" alt="Six-month Gantt chart with development, marketing and art tasks, from prototype clean-up to polish" loading="lazy" decoding="async"></a>
+    </div>
+  </section>
+
+  <section class="section" id="clips">
+    <div class="section-heading reveal"><span class="section-heading__index">05</span><h2 class="section-heading__title" data-scramble>Tech art clips</h2><span class="section-heading__rule"></span></div>
+    <p class="note reveal">These clips are still missing a lot of their gameplay communication, so they can be hard to follow. They are here mainly to show the technical work: splines, animation and set dressing.</p>
     <div class="gallery gallery--wide" data-gallery>
         <figure class="gallery__item reveal">
           <a class="gallery__open" href="../assets/img/solace/set-dressing-1264.webp" data-lightbox="Solace · Set dressing"><img src="../assets/img/solace/set-dressing-1264.webp" srcset="../assets/img/solace/set-dressing-640.webp 640w, ../assets/img/solace/set-dressing-1264.webp 1264w" sizes="(min-width: 60rem) 30vw, (min-width: 40rem) 50vw, 100vw" width="1264" height="1308" alt="A snowy floating island with a cabin, a frozen pool and glowing ice" loading="lazy" decoding="async"></a>
@@ -75,10 +139,6 @@
         <figure class="gallery__item reveal">
           <a class="gallery__open" href="../assets/img/solace/ship-animation.webp" data-lightbox="Solace · Ship animation"><img src="../assets/img/solace/ship-animation-poster.webp" width="800" height="482" alt="A ship moves along glowing paths between tiles" loading="lazy" decoding="async"></a>
           <figcaption class="gallery__caption">Ship animation<small>Animated · click to play</small></figcaption>
-        </figure>
-        <figure class="gallery__item reveal">
-          <a class="gallery__open" href="../assets/img/solace/tile-animation.webp" data-lightbox="Solace · Tile animation"><img src="../assets/img/solace/tile-animation-poster.webp" width="800" height="552" alt="Glowing paths animate across a grid of floating tiles" loading="lazy" decoding="async"></a>
-          <figcaption class="gallery__caption">Tile animation<small>Animated · click to play</small></figcaption>
         </figure>
     </div>
   </section>

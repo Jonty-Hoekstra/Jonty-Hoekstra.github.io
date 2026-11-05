@@ -33,7 +33,7 @@ The design is concept `02e` ("Menu Dock + About"): a full-screen splash menu tha
 
 - **A design choice is asked, not made.** When a request leaves more than one reasonable approach open, give the options and a recommendation, and wait for the user to choose. Routine calls that the standards already settle are not design choices.
 - **A new library, framework, build tool or third-party service is always a design choice.**
-- **Content is Jonty's.** Do not invent project facts, studios, dates, numbers or quotes for the live site. Take facts only from `content/ReadMe.txt` and what the images show. Mark each gap with a `TODO` comment, add it to the "Content still needed" list in `README.md`, and list it in the report.
+- **Content is Jonty's.** Do not invent project facts, studios, dates, numbers or quotes for the live site. Take facts only from `content/ReadMe.txt`, Jonty's CV, Jonty's LinkedIn profile and what the images show. Never publish the CV's home address, phone number or references. Mark each gap with a `TODO` comment, add it to the "Content still needed" list in `README.md`, and list it in the report.
 
 ## Writing style
 

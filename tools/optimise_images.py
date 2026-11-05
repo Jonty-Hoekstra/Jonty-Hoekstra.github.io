@@ -21,12 +21,21 @@ STILL_QUALITY = 80
 ANIMATION_MAX_WIDTH = 800
 ANIMATION_QUALITY = 70
 
-# Output folder, output name, source file (relative to content/).
+# Output folder, output name, source file (relative to content/), and optional widths.
 STILLS = [
     ('about', 'headshot', 'Headshot.jpg'),
+    # Thumbnail of the YouTube reel (youtu.be/zC75iq0rj6k), used as the click-to-play poster.
+    ('vfx-material-showcase', 'reel-poster', 'VFX & Material Showcase/reel-thumbnail.jpg'),
     ('mythos-party', 'map-1', 'MythosParty/Mythos Map 1.png'),
     ('mythos-party', 'map-2', 'MythosParty/Mythos Map 2.png'),
     ('solace', 'set-dressing', 'Solace/Personal_Project-SetDressing.png'),
+    ('solace', 'current-build', 'Solace/image 109.png'),
+    ('solace', 'engine-prototype', 'Solace/Group 415.png'),
+    ('solace', 'paper-prototype', 'Solace/20230705_144133 (1).jpg'),
+    ('solace', 'ui-wireframe', 'Solace/Game UI.png'),
+    ('solace', 'power-rule', 'Solace/Powered lines and the core.png'),
+    # A very wide chart: shown in a sideways-scrolling frame, so it needs a large width to stay readable.
+    ('solace', 'roadmap', 'Solace/Gantt chart.png', (1280, 2400)),
     ('cathedral-scene', 'blockout-1', 'Cathedral Scene (WIP)/be0a908c-dd2f-4693-be07-90d6e1e59f43.jpg'),
     ('cathedral-scene', 'blockout-2', 'Cathedral Scene (WIP)/cc61248f-6d1c-4c9a-b29b-31bf7538fe89.jpg'),
     ('cathedral-scene', 'blockout-3', 'Cathedral Scene (WIP)/3cdb3f29-c9e0-4dcd-9d37-ea44232b60be.jpg'),
@@ -48,13 +57,13 @@ def resized(image, width):
     return image.resize((width, height), Image.LANCZOS)
 
 
-def save_still(folder, name, source):
+def save_still(folder, name, source, step_widths=STILL_WIDTHS):
     image = Image.open(CONTENT / source).convert('RGB')
-    widths = [width for width in STILL_WIDTHS if width < image.width]
-    if image.width <= STILL_WIDTHS[-1]:
+    widths = [width for width in step_widths if width < image.width]
+    if image.width <= step_widths[-1]:
         widths.append(image.width)
     else:
-        widths.append(STILL_WIDTHS[-1])
+        widths.append(step_widths[-1])
     widths = sorted(set(widths))
 
     target = OUTPUT / folder
@@ -84,11 +93,45 @@ def save_animation(folder, name, source):
     print(f'{folder}/{name}: {frames[0].width}x{frames[0].height}, {len(frames)} frames, {size_mb:.1f} MB')
 
 
+# Link preview images (og:image), one per page. JPG, because some sites do not show WebP previews.
+PREVIEW_SIZE = (1200, 630)
+PREVIEW_QUALITY = 85
+PREVIEWS = [
+    ('home', 'Spaceship Level/HighresScreenshot00027.png'),
+    ('spaceship-level', 'Spaceship Level/HighresScreenshot00023.png'),
+    ('solace', 'Solace/Personal_Project_Tile_Animation.gif'),
+    ('mythos-party', 'MythosParty/Mythos Map 1.png'),
+    ('game-jam-map', 'Game Jam/GameJamMap.gif'),
+    ('cathedral-scene', 'Cathedral Scene (WIP)/be0a908c-dd2f-4693-be07-90d6e1e59f43.jpg'),
+    ('vfx-material-showcase', 'VFX & Material Showcase/reel-thumbnail.jpg'),
+]
+
+
+def save_preview(name, source):
+    # The first frame of a GIF; the image is scaled to cover the preview size and cropped to its centre.
+    image = Image.open(CONTENT / source)
+    image.seek(0)
+    image = image.convert('RGB')
+    target_width, target_height = PREVIEW_SIZE
+    scale = max(target_width / image.width, target_height / image.height)
+    scaled = image.resize((round(image.width * scale), round(image.height * scale)), Image.LANCZOS)
+    left = (scaled.width - target_width) // 2
+    top = (scaled.height - target_height) // 2
+    preview = scaled.crop((left, top, left + target_width, top + target_height))
+
+    target = OUTPUT / 'previews'
+    target.mkdir(parents=True, exist_ok=True)
+    preview.save(target / f'{name}.jpg', 'JPEG', quality=PREVIEW_QUALITY, optimize=True, progressive=True)
+    print(f'previews/{name}.jpg')
+
+
 def main():
-    for folder, name, source in STILLS:
-        save_still(folder, name, source)
+    for still in STILLS:
+        save_still(*still)
     for folder, name, source in ANIMATIONS:
         save_animation(folder, name, source)
+    for name, source in PREVIEWS:
+        save_preview(name, source)
 
 
 if __name__ == '__main__':
