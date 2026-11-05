@@ -39,6 +39,13 @@ STILLS = [
     ('cathedral-scene', 'blockout-1', 'Cathedral Scene (WIP)/be0a908c-dd2f-4693-be07-90d6e1e59f43.jpg'),
     ('cathedral-scene', 'blockout-2', 'Cathedral Scene (WIP)/cc61248f-6d1c-4c9a-b29b-31bf7538fe89.jpg'),
     ('cathedral-scene', 'blockout-3', 'Cathedral Scene (WIP)/3cdb3f29-c9e0-4dcd-9d37-ea44232b60be.jpg'),
+    ('cathedral-scene', 'interior-01', 'Cathedral Scene (WIP)/HighresScreenshot00035.png'),
+    ('cathedral-scene', 'interior-02', 'Cathedral Scene (WIP)/HighresScreenshot00036.png'),
+    ('cathedral-scene', 'interior-03', 'Cathedral Scene (WIP)/HighresScreenshot00037.png'),
+    ('cathedral-scene', 'interior-04', 'Cathedral Scene (WIP)/HighresScreenshot00038.png'),
+    ('cathedral-scene', 'interior-05', 'Cathedral Scene (WIP)/HighresScreenshot00039.png'),
+    ('cathedral-scene', 'interior-06', 'Cathedral Scene (WIP)/HighresScreenshot00040.png'),
+    ('cathedral-scene', 'interior-07', 'Cathedral Scene (WIP)/HighresScreenshot00041.png'),
 ] + [
     ('spaceship-level', f'shot-{index:02d}', f'Spaceship Level/HighresScreenshot{index:05d}.png')
     for index in range(35)
@@ -102,7 +109,7 @@ PREVIEWS = [
     ('solace', 'Solace/Personal_Project_Tile_Animation.gif'),
     ('mythos-party', 'MythosParty/Mythos Map 1.png'),
     ('game-jam-map', 'Game Jam/GameJamMap.gif'),
-    ('cathedral-scene', 'Cathedral Scene (WIP)/be0a908c-dd2f-4693-be07-90d6e1e59f43.jpg'),
+    ('cathedral-scene', 'Cathedral Scene (WIP)/HighresScreenshot00035.png'),
     ('vfx-material-showcase', 'VFX & Material Showcase/reel-thumbnail.jpg'),
 ]
 
