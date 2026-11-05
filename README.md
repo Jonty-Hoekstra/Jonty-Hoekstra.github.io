@@ -21,7 +21,6 @@ Open `index.html` in a browser. Everything works from the file system.
 
 The site uses only the information in `content/ReadMe.txt`, Jonty's LinkedIn profile and the files in `content/`. Search the HTML for `TODO` to find each gap.
 
-- [ ] **Degree dates** — LinkedIn says 2017–2019; the CV says 2020 (graduation year?). The site shows 2017–2019.
 - [ ] **NDA title screenshots** — `ReadMe.txt` mentions them, but the folder is not in `content/` yet.
 - [ ] **Cathedral Scene** — a short description of the project (`projects/cathedral-scene.html`).
 - [ ] **Showreel** — optional. If there is one, host it on YouTube or Vimeo and link it from the Featured section.
