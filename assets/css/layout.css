@@ -118,21 +118,6 @@
   letter-spacing: -0.02em;
 }
 
-/* The surname sits under the first name at about a third of the size,
-   letter-spaced so it runs close to the width of JONTY. */
-.splash__surname {
-  display: block;
-  margin-top: 0.45em;
-  font-size: var(--text-surname);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.32em;
-  opacity: 0;
-  filter: blur(8px);
-  transform: translateY(40%);
-  animation: letter-rise 0.9s var(--ease-out) 640ms forwards;
-}
-
 .splash__letter {
   display: inline-block;
   opacity: 0;
