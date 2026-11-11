@@ -75,7 +75,10 @@
     update();
   }
 
-  window.Motion.scramble(splash.querySelector('[data-scramble]'));
+  // The role line waits for its CSS fade-in delay, so it decodes while the name rises.
+  const role = splash.querySelector('[data-scramble]');
+  const roleDelay = parseFloat(getComputedStyle(role).animationDelay) * 1000 || 0;
+  setTimeout(() => window.Motion.scramble(role), roleDelay);
   addMotes();
   followPointer();
   setUpMenu();

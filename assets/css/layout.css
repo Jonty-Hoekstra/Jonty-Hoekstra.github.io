@@ -105,10 +105,13 @@
   font-size: var(--text-s);
   letter-spacing: 0.18em;
   color: var(--colour-accent);
+  opacity: 0;
+  /* splash.js starts the decode after this delay. */
+  animation: fade-in 0.3s ease 760ms forwards;
 }
 
 .splash__name {
-  margin: var(--space-s) 0 var(--space-l);
+  margin: 0 0 var(--space-m);
 }
 
 .splash__first {
@@ -132,6 +135,22 @@
 .splash__letter:nth-child(4) { animation-delay: 440ms; }
 .splash__letter:nth-child(5) { animation-delay: 520ms; }
 
+/* The surname sits tight under the first name, about half its size.
+   The letter spacing makes it the same width as JONTY. */
+.splash__surname {
+  display: block;
+  margin-top: 0.14em;
+  font-size: var(--text-surname);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.178em;
+  color: var(--colour-text-muted);
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(40%);
+  animation: letter-rise 0.9s var(--ease-out) 640ms forwards;
+}
+
 @keyframes letter-rise {
   to {
     opacity: 1;
@@ -143,6 +162,7 @@
 .splash__tagline {
   max-width: 28rem;
   color: var(--colour-text-muted);
+  margin-top: var(--space-xs);
   font-size: var(--text-l);
   opacity: 0;
   animation: fade-in 0.8s ease 900ms forwards;
