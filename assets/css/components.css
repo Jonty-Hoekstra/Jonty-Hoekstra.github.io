@@ -1416,6 +1416,58 @@
   color: var(--colour-text-muted);
 }
 
+/* === Steps: jump links to the numbered sections of a process page === */
+
+.steps {
+  margin-top: var(--space-l);
+}
+
+.steps__list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-m);
+}
+
+.steps__item {
+  display: flex;
+  align-items: center;
+}
+
+.steps__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: var(--tap-size);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--colour-text-muted);
+  transition: color 0.2s;
+}
+
+.steps__number {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--colour-accent);
+}
+
+/* A short rule joins the steps when they fit on one line. */
+@media (min-width: 40rem) {
+  .steps__item + .steps__item::before {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    margin-right: var(--space-m);
+    background: var(--colour-line);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .steps__link:hover {
+    color: var(--colour-text);
+  }
+}
+
 /* === Project groups and NDA cards === */
 
 .project-group {
@@ -1647,6 +1699,176 @@
 
   .spread__media {
     margin-inline: calc(var(--main-gutter) * -1) 0;
+  }
+}
+
+/* The image keeps its own shape instead of a 4:3 crop, for reference boards and shots with notes. */
+.spread__media--whole .gallery__open {
+  aspect-ratio: auto;
+}
+
+/* Several shots stacked in the image column, each with a caption. */
+.spread__media--stack {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.spread__shot {
+  position: relative;
+  overflow: hidden;
+  background: var(--colour-bg-raised);
+}
+
+/* Text left, image right on wide screens, so the spreads on a page can alternate. */
+@media (min-width: 60rem) {
+  .spread--reverse {
+    grid-template-columns: 1fr 1.15fr;
+  }
+
+  .spread--reverse .spread__media {
+    order: 2;
+    margin-inline: 0 calc(var(--main-gutter) * -1);
+  }
+}
+
+/* On phones and tablets the text comes before the image, so two large images do not stack at the top of a page. */
+.spread--text-first .spread__text {
+  order: -1;
+}
+
+@media (min-width: 60rem) {
+  .spread--text-first .spread__text {
+    order: 0;
+  }
+}
+
+/* A gallery with one wide image, then pairs. The wide image keeps to the same edges as the pairs. */
+@media (min-width: 40rem) {
+  .gallery--pairs .gallery__item:first-child {
+    margin-inline: 0;
+  }
+
+  .gallery--pairs .gallery__item:not(:first-child) {
+    grid-column: auto;
+    margin-inline: 0;
+  }
+
+  .gallery--pairs .gallery__item:not(:first-child) .gallery__open {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Buttons that close a section, such as a second build link at the end of a page. */
+.section-actions {
+  align-items: center;
+  margin-top: var(--space-xl);
+}
+
+/* The last section of a project page, when it ends with buttons: less space before the project links. */
+.section--closing {
+  padding-bottom: var(--space-l);
+}
+
+/* Beside a tall image column, the text starts at the top and stays in view while the images scroll past. */
+@media (min-width: 60rem) {
+  .spread--sticky {
+    align-items: start;
+  }
+
+  .spread--sticky .spread__text {
+    position: sticky;
+    top: var(--space-2xl);
+  }
+}
+
+/* === Story: a block of project text without an image beside it === */
+
+.story {
+  max-width: 46rem;
+}
+
+.story p {
+  margin-bottom: var(--space-m);
+  font-size: var(--text-l);
+  color: var(--colour-text-muted);
+}
+
+.spread + .gallery,
+.story + .gallery,
+.story + .ref-board {
+  margin-top: var(--space-xl);
+}
+
+/* === Reference board: reference-and-blockout images with a design note under each ===
+   Two columns of cards. The columns share a top and bottom edge; any spare height goes between the cards.
+   Images are never shown larger than their own size. */
+
+.ref-board {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.ref-board__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 40rem) {
+  .ref-board {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ref-board__column {
+    justify-content: space-between;
+  }
+}
+
+.ref-board__item {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.ref-board__open {
+  display: block;
+}
+
+/* A key under each image. Every board has the reference on the left and the blockout on the right. */
+.ref-board__key {
+  contain: inline-size;
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--space-2xs);
+  border-top: 1px solid var(--colour-line);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--colour-text-muted);
+}
+
+.ref-board__key-blockout {
+  color: var(--colour-accent);
+}
+
+/* The note takes the width of its image instead of widening the card. */
+.ref-board__note {
+  contain: inline-size;
+  margin-top: var(--space-s);
+  padding-left: var(--space-s);
+  border-left: 2px solid var(--colour-accent);
+  font-size: var(--text-s);
+  color: var(--colour-text-muted);
+}
+
+.ref-board__open img {
+  transition: filter 0.3s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ref-board__open:hover img {
+    filter: brightness(1.12);
   }
 }
 

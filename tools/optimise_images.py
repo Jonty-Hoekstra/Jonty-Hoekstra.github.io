@@ -22,6 +22,9 @@ ANIMATION_MAX_WIDTH = 800
 ANIMATION_QUALITY = 70
 # Ability clips show as small tiles, so they are smaller to keep the page light.
 ABILITY_WIDTH = 520
+# The page background (--colour-bg in tokens.css). Images that pass it fill their transparent areas
+# with it, so cut-out reference boards blend into the page.
+PAGE_BACKGROUND = (11, 11, 16)
 
 # Output folder, output name, source file (relative to content/), and optional widths.
 STILLS = [
@@ -73,6 +76,17 @@ STILLS = [
     ('cathedral-scene', 'interior-05', 'Cathedral Scene (WIP)/HighresScreenshot00039.png'),
     ('cathedral-scene', 'interior-06', 'Cathedral Scene (WIP)/HighresScreenshot00040.png'),
     ('cathedral-scene', 'interior-07', 'Cathedral Scene (WIP)/HighresScreenshot00041.png'),
+    ('cathedral-scene', 'lighting-oculus', 'Cathedral Scene (WIP)/Lighting.jpg'),
+    ('cathedral-scene', 'lighting-candle', 'Cathedral Scene (WIP)/Lighting2.png'),
+    # Reference boards: transparent cut-outs, so they sit on the page background.
+    # The Group boards are cropped (left, top, right, bottom) above their notes; the page shows the notes as text.
+    ('cathedral-scene', 'refs-first', 'Cathedral Scene (WIP)/CathedralFirstRefs.png', STILL_WIDTHS, PAGE_BACKGROUND),
+    ('cathedral-scene', 'refs-pillars', 'Cathedral Scene (WIP)/Group 4.png', STILL_WIDTHS, PAGE_BACKGROUND, (0, 0, 225, 585)),
+    ('cathedral-scene', 'refs-windows', 'Cathedral Scene (WIP)/Group 5.png', STILL_WIDTHS, PAGE_BACKGROUND, (0, 0, 283, 220)),
+    ('cathedral-scene', 'refs-framing', 'Cathedral Scene (WIP)/Group 6.png', STILL_WIDTHS, PAGE_BACKGROUND, (0, 0, 424, 221)),
+    ('cathedral-scene', 'refs-textured-pillars', 'Cathedral Scene (WIP)/Group 7.png', STILL_WIDTHS, PAGE_BACKGROUND, (0, 0, 262, 349)),
+    ('cathedral-scene', 'refs-sun-motif', 'Cathedral Scene (WIP)/Group 8.png', STILL_WIDTHS, PAGE_BACKGROUND, (0, 0, 642, 226)),
+    ('cathedral-scene', 'refs-curves', 'Cathedral Scene (WIP)/Group 9.png', STILL_WIDTHS, PAGE_BACKGROUND, (0, 0, 516, 305)),
 ] + [
     ('spaceship-level', f'shot-{index:02d}', f'Spaceship Level/HighresScreenshot{index:05d}.png')
     for index in range(35)
@@ -99,8 +113,16 @@ def resized(image, width):
     return image.resize((width, height), Image.LANCZOS)
 
 
-def save_still(folder, name, source, step_widths=STILL_WIDTHS):
-    image = Image.open(CONTENT / source).convert('RGB')
+def save_still(folder, name, source, step_widths=STILL_WIDTHS, matte=None, crop=None):
+    image = Image.open(CONTENT / source)
+    if crop:
+        image = image.crop(crop)
+    if matte:
+        image = image.convert('RGBA')
+        background = Image.new('RGBA', image.size, matte + (255,))
+        background.alpha_composite(image)
+        image = background
+    image = image.convert('RGB')
     widths = [width for width in step_widths if width < image.width]
     if image.width <= step_widths[-1]:
         widths.append(image.width)

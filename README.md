@@ -21,7 +21,7 @@ Open `index.html` in a browser. Everything works from the file system.
 
 The site uses only the information in `content/ReadMe.txt`, Jonty's LinkedIn profile and the files in `content/`. Search the HTML for `TODO` to find each gap.
 
-- [ ] **Cathedral Scene** — a short description of the project (`projects/cathedral-scene.html`).
+Nothing is outstanding at the moment.
 
 ## Add or change a project
 
