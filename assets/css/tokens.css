@@ -42,6 +42,8 @@
   --colour-line: #2a2a38;
   --colour-text: #f2f2f5;
   --colour-text-muted: #9d9db3;
+  /* The white of a scanned or exported design board, so boards of any shape fill their frame. */
+  --colour-paper: #ffffff;
   --colour-accent: #d7ff3a;
   --colour-accent-glow: rgba(215, 255, 58, 0.45);
   --colour-accent-soft: rgba(215, 255, 58, 0.12);

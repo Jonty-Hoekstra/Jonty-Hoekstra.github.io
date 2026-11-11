@@ -10,7 +10,7 @@ Needs Python 3 with Pillow (pip install pillow).
 
 from pathlib import Path
 
-from PIL import Image, ImageSequence
+from PIL import Image, ImageDraw, ImageSequence
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONTENT = PROJECT_ROOT / 'content'
@@ -90,6 +90,29 @@ STILLS = [
 ] + [
     ('spaceship-level', f'shot-{index:02d}', f'Spaceship Level/HighresScreenshot{index:05d}.png')
     for index in range(35)
+] + [
+    # Process images. The early blockout shots are cropped (left, top, right, bottom) to the screenshot itself:
+    # each original sits on a white edge, shots 4-6 overlap the top of another screenshot, and several show a
+    # Windows activation notice near the bottom. The sketches are cropped to the notebook page.
+    # The brainstorm boards are split into their parts and trimmed, so each part is large enough to read.
+    # The reference images sit on the page background instead of the board's white.
+    ('spaceship-level', 'brainstorm-refs', 'Spaceship Level/Portfolio Brainstorming (1).png', STILL_WIDTHS, None, (226, 226, 2989, 1815), PAGE_BACKGROUND),
+    ('spaceship-level', 'brainstorm-spaceship', 'Spaceship Level/Portfolio Brainstorming (1).png', STILL_WIDTHS, None, (707, 1860, 2507, 3796)),
+    ('spaceship-level', 'brainstorm-cemetery', 'Spaceship Level/Portfolio Brainstorming (2).png', STILL_WIDTHS, None, (200, 200, 4744, 2508)),
+    ('spaceship-level', 'layout-split', 'Spaceship Level/Portfolio Brainstorming (3).png', STILL_WIDTHS, None, (176, 230, 876, 970)),
+    ('spaceship-level', 'layout-mix', 'Spaceship Level/Portfolio Brainstorming (3).png', STILL_WIDTHS, None, (955, 230, 1655, 970)),
+    ('spaceship-level', 'layout-colosseum', 'Spaceship Level/Portfolio Brainstorming (3).png', STILL_WIDTHS, None, (1713, 230, 2413, 970)),
+    ('spaceship-level', 'layout-fortress', 'Spaceship Level/Portfolio Brainstorming (3).png', STILL_WIDTHS, None, (2424, 230, 3124, 970)),
+    ('spaceship-level', 'brainstorm-combined', 'Spaceship Level/Portfolio Brainstorming (4).png', STILL_WIDTHS, None, (200, 200, 4408, 2688)),
+    ('spaceship-level', 'puzzle-plan', 'Spaceship Level/Group 26.png', STILL_WIDTHS, PAGE_BACKGROUND),
+    ('spaceship-level', 'sketch-1', 'Spaceship Level/Sketch1.jpg', STILL_WIDTHS, None, (347, 510, 2734, 3794)),
+    ('spaceship-level', 'sketch-2', 'Spaceship Level/Sketch2.jpg', STILL_WIDTHS, None, (286, 347, 2938, 3998)),
+    ('spaceship-level', 'early-blockout-1', 'Spaceship Level/EarlyBlockin1.png', STILL_WIDTHS, None, (0, 0, 2366, 1205)),
+    ('spaceship-level', 'early-blockout-2', 'Spaceship Level/EarlyBlockin2.png', STILL_WIDTHS, None, (0, 0, 2366, 1205)),
+    ('spaceship-level', 'early-blockout-3', 'Spaceship Level/EarlyBlockin3.png', STILL_WIDTHS, None, (0, 0, 2344, 1205)),
+    ('spaceship-level', 'early-blockout-4', 'Spaceship Level/EarlyBlockin4.png', STILL_WIDTHS, None, (0, 291, 2366, 1439)),
+    ('spaceship-level', 'early-blockout-5', 'Spaceship Level/EarlyBlockin5.png', STILL_WIDTHS, None, (0, 291, 2366, 1325)),
+    ('spaceship-level', 'early-blockout-6', 'Spaceship Level/EarlyBlockin6.png', STILL_WIDTHS, None, (0, 291, 2366, 1439)),
 ]
 
 ANIMATIONS = [
@@ -105,6 +128,14 @@ ANIMATIONS = [
     ('mythos-party', 'ability-home-run', 'MythosParty/HomeRun.gif', ABILITY_WIDTH),
     ('mythos-party', 'ability-nyx', 'MythosParty/NyxApbea.gif', ABILITY_WIDTH),
     ('mythos-party', 'peaceful-day', 'MythosParty/PeacefuldayVol2smol.gif'),
+    ('spaceship-level', 'basic-switch', 'Spaceship Level/WhiteSwitch.gif'),
+    ('spaceship-level', 'pressure-switch', 'Spaceship Level/YellowSwitch.gif'),
+    # These three are cropped below the editor notices ("Click for Mouse Control") in the top-left corner.
+    ('spaceship-level', 'carry-cube', 'Spaceship Level/PowerOnSecondRoom.gif', ANIMATION_MAX_WIDTH, (0, 22, 770, 559)),
+    ('spaceship-level', 'power-on', 'Spaceship Level/PowerOnFirstRoom.gif', ANIMATION_MAX_WIDTH, (0, 22, 770, 559)),
+    ('spaceship-level', 'rising-platform', 'Spaceship Level/RisingPlatform.gif', ANIMATION_MAX_WIDTH, (0, 22, 770, 559)),
+    ('spaceship-level', 'puzzle-platform', 'Spaceship Level/PuzzlePlatform.gif'),
+    ('spaceship-level', 'complex-puzzle', 'Spaceship Level/ComplexPuzzleGif.gif'),
 ]
 
 
@@ -113,10 +144,14 @@ def resized(image, width):
     return image.resize((width, height), Image.LANCZOS)
 
 
-def save_still(folder, name, source, step_widths=STILL_WIDTHS, matte=None, crop=None):
+def save_still(folder, name, source, step_widths=STILL_WIDTHS, matte=None, crop=None, fill=None):
     image = Image.open(CONTENT / source)
     if crop:
         image = image.crop(crop)
+    if fill:
+        # Repaint the white background that reaches the edges, leaving white inside the pictures alone.
+        image = image.convert('RGB')
+        ImageDraw.floodfill(image, (0, 0), fill, thresh=40)
     if matte:
         image = image.convert('RGBA')
         background = Image.new('RGBA', image.size, matte + (255,))
@@ -139,13 +174,16 @@ def save_still(folder, name, source, step_widths=STILL_WIDTHS, matte=None, crop=
     print(f'{folder}/{name}: widths {widths}, largest {largest.width}x{largest.height}')
 
 
-def save_animation(folder, name, source, max_width=ANIMATION_MAX_WIDTH):
+def save_animation(folder, name, source, max_width=ANIMATION_MAX_WIDTH, crop=None):
     animation = Image.open(CONTENT / source)
-    width = min(animation.width, max_width)
+    width = min(crop[2] - crop[0] if crop else animation.width, max_width)
     frames, durations = [], []
     for frame in ImageSequence.Iterator(animation):
         durations.append(frame.info.get('duration', 70))
-        frames.append(resized(frame.convert('RGB'), width))
+        frame = frame.convert('RGB')
+        if crop:
+            frame = frame.crop(crop)
+        frames.append(resized(frame, width))
 
     target = OUTPUT / folder
     target.mkdir(parents=True, exist_ok=True)

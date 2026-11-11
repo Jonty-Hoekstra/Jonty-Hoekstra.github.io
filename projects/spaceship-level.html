@@ -63,46 +63,212 @@
     <p class="project-header__intro">A personal exercise: a simple level where I could explore level flow, puzzle design, environmental storytelling and some light platforming.</p>
     <ul class="facts"><li class="facts__item"><span class="facts__label">Type</span>Personal exercise</li><li class="facts__item"><span class="facts__label">Focus</span>Flow &amp; puzzles</li><li class="facts__item"><span class="facts__label">Also</span>Storytelling &amp; platforming</li><li class="facts__item"><span class="facts__label">Engine</span>Unreal Engine</li></ul>
     <div class="button-row project-header__actions"><a class="button" href="https://drive.google.com/file/d/1QdIZ13BJ2zXVKfFjEv_tZZO0HAKEH8UP/view?usp=sharing" target="_blank" rel="noopener">Download the build ↗</a><span class="project-header__hint">Hosted on Google Drive</span></div>
+    <nav class="steps" aria-label="Process">
+      <ol class="steps__list">
+        <li class="steps__item"><a class="steps__link" href="#puzzles"><span class="steps__number">01</span>Puzzles</a></li>
+        <li class="steps__item"><a class="steps__link" href="#approach"><span class="steps__number">02</span>Approach</a></li>
+        <li class="steps__item"><a class="steps__link" href="#planning"><span class="steps__number">03</span>Planning</a></li>
+        <li class="steps__item"><a class="steps__link" href="#playtesting"><span class="steps__number">04</span>Playtesting</a></li>
+        <li class="steps__item"><a class="steps__link" href="#refresh"><span class="steps__number">05</span>Refresh</a></li>
+        <li class="steps__item"><a class="steps__link" href="#result"><span class="steps__number">06</span>Result</a></li>
+      </ol>
+    </nav>
   </header>
 
   <figure class="media project-hero wipe reveal"><img src="../assets/img/spaceship-level/shot-34-1280.webp" srcset="../assets/img/spaceship-level/shot-34-640.webp 640w, ../assets/img/spaceship-level/shot-34-1280.webp 1280w, ../assets/img/spaceship-level/shot-34-1920.webp 1920w" sizes="(min-width: 60rem) 80vw, 100vw" width="1920" height="1181" alt="Storage racks and the hangar floor from above" fetchpriority="high" decoding="async"></figure>
 
-  <section class="section spread" id="story">
-    <figure class="spread__media wipe reveal">
-      <a class="gallery__open" href="../assets/img/spaceship-level/shot-16-1920.webp" data-lightbox="Spaceship Level · The abandoned ship"><img src="../assets/img/spaceship-level/shot-16-1280.webp" srcset="../assets/img/spaceship-level/shot-16-640.webp 640w, ../assets/img/spaceship-level/shot-16-1280.webp 1280w, ../assets/img/spaceship-level/shot-16-1920.webp 1920w" sizes="(min-width: 60rem) 45vw, 100vw" width="1920" height="1181" alt="A dark, damaged corridor with debris, on the abandoned ship" loading="lazy" decoding="async"></a>
-    </figure>
+  <section class="section spread spread--sticky spread--text-first" id="story">
+    <div class="spread__media spread__media--whole spread__media--stack" data-gallery>
+      <figure class="spread__shot wipe reveal">
+        <a class="gallery__open" href="../assets/img/spaceship-level/shot-16-1920.webp" data-lightbox="Spaceship Level · The abandoned ship"><img src="../assets/img/spaceship-level/shot-16-1280.webp" srcset="../assets/img/spaceship-level/shot-16-640.webp 640w, ../assets/img/spaceship-level/shot-16-1280.webp 1280w, ../assets/img/spaceship-level/shot-16-1920.webp 1920w" sizes="(min-width: 60rem) 45vw, 100vw" width="1920" height="1181" alt="A dark, damaged corridor with debris, on the abandoned ship" loading="lazy" decoding="async"></a>
+        <figcaption class="gallery__caption">The abandoned ship</figcaption>
+      </figure>
+      <figure class="spread__shot wipe reveal">
+        <a class="gallery__open" href="../assets/img/spaceship-level/power-on.webp" data-lightbox="Spaceship Level · Power on"><picture><source srcset="../assets/img/spaceship-level/power-on.webp" type="image/webp" media="(prefers-reduced-motion: no-preference)"><img src="../assets/img/spaceship-level/power-on-poster.webp" width="770" height="537" alt="The player steps on a switch to connect a pipe, and the red emergency lighting gives way to bright white light" loading="lazy" decoding="async"></picture></a>
+        <figcaption class="gallery__caption">Power on</figcaption>
+      </figure>
+    </div>
     <div class="spread__text reveal">
       <p class="eyebrow">THE LEVEL</p>
       <h2 class="spread__title" data-scramble>Power the ship back up</h2>
-      <p>The player arrives on a seemingly desolate ship, dark and abandoned. As they progress, they find ways to restore power by manipulating pipes in puzzle encounters around the ship.</p>
-      <p>Each power system they bring back online opens doors and creates new paths forward, until they find out why the ship was abandoned, and discover a way off the doomed ship.</p>
+      <p>The player arrives on a seemingly desolate ship, dark and abandoned. As the player progresses, they’ll start to find ways to re-engage power on the ship by manipulating pipes in puzzle encounters around the ship.</p>
+      <p>As players engage more power systems, they will open doors and create new paths forward, eventually finding out why the ship was abandoned and discovering a way off the doomed ship.</p>
     </div>
   </section>
 
-  <section class="section" id="highlights">
-    <div class="section-heading reveal"><span class="section-heading__index">01</span><h2 class="section-heading__title" data-scramble>Highlights</h2><span class="section-heading__rule"></span></div>
-    <div class="gallery" data-gallery>
+  <section class="section" id="puzzles">
+    <div class="section-heading reveal"><span class="section-heading__index">01</span><h2 class="section-heading__title" data-scramble>Puzzle elements</h2><span class="section-heading__rule"></span></div>
+    <div class="story reveal">
+      <p>The demo’s mechanics revolve around manipulating pipe orientations through a couple of different kinds of switches.</p>
+    </div>
+    <ul class="mechanics" data-gallery>
+      <li class="mechanic reveal">
+        <a class="mechanic__media" href="../assets/img/spaceship-level/basic-switch.webp" data-lightbox="Spaceship Level · Basic switch"><picture><source srcset="../assets/img/spaceship-level/basic-switch.webp" type="image/webp" media="(prefers-reduced-motion: no-preference)"><img src="../assets/img/spaceship-level/basic-switch-poster.webp" width="702" height="555" alt="The player steps on a white basic switch, which turns its pipe to a new position and stays there" loading="lazy" decoding="async"></picture></a>
+        <div class="mechanic__text">
+          <h3 class="mechanic__title">Basic switch</h3>
+          <p>This switch has two possible orientations, and swaps between them when either the player steps on it or a box is placed on it. The switch has a pipe fixed to its centre, and will connect any pipe that it lines up with to its other side. The switch will remain in place until it is triggered again.</p>
+        </div>
+      </li>
+      <li class="mechanic reveal">
+        <a class="mechanic__media" href="../assets/img/spaceship-level/pressure-switch.webp" data-lightbox="Spaceship Level · Pressure switch"><picture><source srcset="../assets/img/spaceship-level/pressure-switch.webp" type="image/webp" media="(prefers-reduced-motion: no-preference)"><img src="../assets/img/spaceship-level/pressure-switch-poster.webp" width="702" height="555" alt="The player stands on a yellow pressure switch, which turns its pipe and turns back when they step off" loading="lazy" decoding="async"></picture></a>
+        <div class="mechanic__text">
+          <h3 class="mechanic__title">Pressure switch</h3>
+          <p>This switch is the same as the basic one, except it has a fixed orientation that it will return to once it isn’t being triggered.</p>
+        </div>
+      </li>
+      <li class="mechanic reveal">
+        <a class="mechanic__media" href="../assets/img/spaceship-level/carry-cube.webp" data-lightbox="Spaceship Level · Carry cube"><picture><source srcset="../assets/img/spaceship-level/carry-cube.webp" type="image/webp" media="(prefers-reduced-motion: no-preference)"><img src="../assets/img/spaceship-level/carry-cube-poster.webp" width="770" height="537" alt="The player carries a red cube onto a pressure switch to hold it down, and the room powers back on" loading="lazy" decoding="async"></picture></a>
+        <div class="mechanic__text">
+          <h3 class="mechanic__title">Carry cube</h3>
+          <p>Within some of the puzzles there will be cubes that can be picked up. Players will need to use these to keep the pressure switches pressed while they move off them.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section" id="approach">
+    <div class="section-heading reveal"><span class="section-heading__index">02</span><h2 class="section-heading__title" data-scramble>Design approach</h2><span class="section-heading__rule"></span></div>
+    <div class="spread spread--sticky spread--text-first">
+      <div class="spread__media spread__media--whole spread__media--stack" data-gallery>
+        <figure class="spread__shot wipe reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/brainstorm-refs-1920.webp" data-lightbox="Spaceship Level · Spaceship references"><img src="../assets/img/spaceship-level/brainstorm-refs-1280.webp" srcset="../assets/img/spaceship-level/brainstorm-refs-640.webp 640w, ../assets/img/spaceship-level/brainstorm-refs-1280.webp 1280w, ../assets/img/spaceship-level/brainstorm-refs-1920.webp 1920w" sizes="(min-width: 60rem) 45vw, 100vw" width="1920" height="1104" alt="Eight concept images of dark, damaged spaceship interiors: hangars, corridors and a lit maintenance bay" loading="lazy" decoding="async"></a>
+        </figure>
+        <figure class="spread__shot wipe reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/brainstorm-spaceship-1800.webp" data-lightbox="Spaceship Level · Spaceship mind map"><img src="../assets/img/spaceship-level/brainstorm-spaceship-1280.webp" srcset="../assets/img/spaceship-level/brainstorm-spaceship-640.webp 640w, ../assets/img/spaceship-level/brainstorm-spaceship-1280.webp 1280w, ../assets/img/spaceship-level/brainstorm-spaceship-1800.webp 1800w" sizes="(min-width: 60rem) 45vw, 100vw" width="1800" height="1936" alt="A mind map from Derelict Spaceship to an old ship with no power, then the player powering on sections of the ship, ending at the core puzzle mechanic: connect power lines" loading="lazy" decoding="async"></a>
+        </figure>
+      </div>
+      <div class="spread__text reveal">
+        <p>I knew I wanted to create a puzzle platformer level, and had a couple of goals I wanted it to meet:</p>
+        <ul class="goal-list">
+          <li>A theme that enabled a visually striking mechanic</li>
+          <li>A setting that wasn’t too hard to pull off, with either blocking materials or some limited use of an asset pack</li>
+          <li>A theme that enabled a versatile mechanic, able to support multiple puzzles and retain interest</li>
+        </ul>
+        <p>To this end, I explored a couple of different themes that I thought had potential, but ended up picking the spaceship because of how clearly I could see its striking visuals, along with the mechanic not being too difficult to prototype.</p>
+      </div>
+    </div>
+    <div class="boards" data-gallery>
+      <figure class="boards__item boards__item--half reveal"><a class="boards__open" href="../assets/img/spaceship-level/brainstorm-cemetery-1920.webp" data-lightbox="Spaceship Level · Cemetery mind map"><img src="../assets/img/spaceship-level/brainstorm-cemetery-1280.webp" srcset="../assets/img/spaceship-level/brainstorm-cemetery-640.webp 640w, ../assets/img/spaceship-level/brainstorm-cemetery-1280.webp 1280w, ../assets/img/spaceship-level/brainstorm-cemetery-1920.webp 1920w" sizes="(min-width: 60rem) 35vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="975" alt="A mind map for a cemetery theme: otherworldly chunks of cemetery floating in space, with a looming skull in the sky and an evolving central island" loading="lazy" decoding="async"></a></figure>
+      <figure class="boards__item boards__item--half reveal"><a class="boards__open" href="../assets/img/spaceship-level/brainstorm-combined-1920.webp" data-lightbox="Spaceship Level · Combined arena layout"><img src="../assets/img/spaceship-level/brainstorm-combined-1280.webp" srcset="../assets/img/spaceship-level/brainstorm-combined-640.webp 640w, ../assets/img/spaceship-level/brainstorm-combined-1280.webp 1280w, ../assets/img/spaceship-level/brainstorm-combined-1920.webp 1920w" sizes="(min-width: 60rem) 35vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="1135" alt="A sketch combining the arena layouts: a Reverse Colosseum ringed by The Mix, beside a Split island and Fortress" loading="lazy" decoding="async"></a></figure>
+      <figure class="boards__item boards__item--quarter reveal"><a class="boards__open" href="../assets/img/spaceship-level/layout-split-700.webp" data-lightbox="Spaceship Level · Split layout"><img src="../assets/img/spaceship-level/layout-split-700.webp" srcset="../assets/img/spaceship-level/layout-split-640.webp 640w, ../assets/img/spaceship-level/layout-split-700.webp 700w" sizes="(min-width: 60rem) 18vw, (min-width: 40rem) 50vw, 50vw" width="700" height="740" alt="The Split layout: high ground and low ground are created as one path moves downwards, making two distinct paths" loading="lazy" decoding="async"></a></figure>
+      <figure class="boards__item boards__item--quarter reveal"><a class="boards__open" href="../assets/img/spaceship-level/layout-mix-700.webp" data-lightbox="Spaceship Level · The Mix layout"><img src="../assets/img/spaceship-level/layout-mix-700.webp" srcset="../assets/img/spaceship-level/layout-mix-640.webp 640w, ../assets/img/spaceship-level/layout-mix-700.webp 700w" sizes="(min-width: 60rem) 18vw, (min-width: 40rem) 50vw, 50vw" width="700" height="740" alt="The Mix layout: blocking objects create a lowered cauldron in the middle, pulling players and enemies toward the centre" loading="lazy" decoding="async"></a></figure>
+      <figure class="boards__item boards__item--quarter reveal"><a class="boards__open" href="../assets/img/spaceship-level/layout-colosseum-700.webp" data-lightbox="Spaceship Level · Reverse Colosseum layout"><img src="../assets/img/spaceship-level/layout-colosseum-700.webp" srcset="../assets/img/spaceship-level/layout-colosseum-640.webp 640w, ../assets/img/spaceship-level/layout-colosseum-700.webp 700w" sizes="(min-width: 60rem) 18vw, (min-width: 40rem) 50vw, 50vw" width="700" height="740" alt="The Reverse Colosseum layout: a raised middle section, such as a big statue, lets the player control the encounter by blocking line of sight" loading="lazy" decoding="async"></a></figure>
+      <figure class="boards__item boards__item--quarter reveal"><a class="boards__open" href="../assets/img/spaceship-level/layout-fortress-700.webp" data-lightbox="Spaceship Level · Fortress layout"><img src="../assets/img/spaceship-level/layout-fortress-700.webp" srcset="../assets/img/spaceship-level/layout-fortress-640.webp 640w, ../assets/img/spaceship-level/layout-fortress-700.webp 700w" sizes="(min-width: 60rem) 18vw, (min-width: 40rem) 50vw, 50vw" width="700" height="740" alt="The Fortress layout: an elevated position surrounded by exposed low ground, which forces the player to storm the high ground" loading="lazy" decoding="async"></a></figure>
+    </div>
+  </section>
+
+  <section class="section" id="planning">
+    <div class="section-heading reveal"><span class="section-heading__index">03</span><h2 class="section-heading__title" data-scramble>Planning the puzzles</h2><span class="section-heading__rule"></span></div>
+    <div class="spread spread--reverse spread--sticky">
+      <figure class="spread__media spread__media--whole wipe reveal" data-gallery>
+        <a class="gallery__open" href="../assets/img/spaceship-level/puzzle-plan-1390.webp" data-lightbox="Spaceship Level · Puzzle and level plan"><img src="../assets/img/spaceship-level/puzzle-plan-1280.webp" srcset="../assets/img/spaceship-level/puzzle-plan-640.webp 640w, ../assets/img/spaceship-level/puzzle-plan-1280.webp 1280w, ../assets/img/spaceship-level/puzzle-plan-1390.webp 1390w" sizes="(min-width: 60rem) 45vw, 100vw" width="1390" height="1398" alt="A plan of the level: puzzle rooms with switches, pipes, batteries and power generators, linked by a corridor to the ship, with an intro entrance and a small platforming room" loading="lazy" decoding="async"></a>
+      </figure>
+      <div class="spread__text reveal">
+        <p>After this, I went deep into plotting out some of the more complex puzzles, to ensure the mechanic had enough depth to support the experience. Once I was pleased with this, I also made a simple flow for the overall level, so I could figure out the size and the kind of tutorialisation I’d need to account for.</p>
+      </div>
+    </div>
+    <div class="gallery gallery--halves" data-gallery>
         <figure class="gallery__item reveal">
-          <a class="gallery__open" href="../assets/img/spaceship-level/shot-27-1920.webp" data-lightbox="Spaceship Level · Shot 28"><img src="../assets/img/spaceship-level/shot-27-1280.webp" srcset="../assets/img/spaceship-level/shot-27-640.webp 640w, ../assets/img/spaceship-level/shot-27-1280.webp 1280w, ../assets/img/spaceship-level/shot-27-1920.webp 1920w" sizes="(min-width: 60rem) 80vw, 100vw" width="1920" height="1181" alt="A cargo bay with a yellow puzzle platform that rotates" loading="lazy" decoding="async"></a>
-          <figcaption class="gallery__caption">Rotating puzzle platform<small>Shot 28 · The yellow platform rotates as part of a puzzle</small></figcaption>
+          <a class="gallery__open" href="../assets/img/spaceship-level/sketch-1-1920.webp" data-lightbox="Spaceship Level · Puzzle sketch 1"><img src="../assets/img/spaceship-level/sketch-1-1280.webp" srcset="../assets/img/spaceship-level/sketch-1-640.webp 640w, ../assets/img/spaceship-level/sketch-1-1280.webp 1280w, ../assets/img/spaceship-level/sketch-1-1920.webp 1920w" sizes="(min-width: 60rem) 35vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="2642" alt="A pencil sketch in a notebook of a puzzle layout, with rooms, pipes and round switches" loading="lazy" decoding="async"></a>
         </figure>
         <figure class="gallery__item reveal">
-          <a class="gallery__open" href="../assets/img/spaceship-level/shot-12-1920.webp" data-lightbox="Spaceship Level · Shot 13"><img src="../assets/img/spaceship-level/shot-12-1280.webp" srcset="../assets/img/spaceship-level/shot-12-640.webp 640w, ../assets/img/spaceship-level/shot-12-1280.webp 1280w, ../assets/img/spaceship-level/shot-12-1920.webp 1920w" sizes="(min-width: 60rem) 80vw, 100vw" width="1920" height="1181" alt="The generator room, with puzzle pipes running across the floor and ceiling" loading="lazy" decoding="async"></a>
-          <figcaption class="gallery__caption">Generator room<small>Shot 13 · The pipes on the floor and ceiling are puzzle elements</small></figcaption>
-        </figure>
-        <figure class="gallery__item reveal">
-          <a class="gallery__open" href="../assets/img/spaceship-level/shot-08-1920.webp" data-lightbox="Spaceship Level · Shot 9"><img src="../assets/img/spaceship-level/shot-08-1280.webp" srcset="../assets/img/spaceship-level/shot-08-640.webp 640w, ../assets/img/spaceship-level/shot-08-1280.webp 1280w, ../assets/img/spaceship-level/shot-08-1920.webp 1920w" sizes="(min-width: 60rem) 80vw, 100vw" width="1920" height="1181" alt="The hangar from the side, with the ship and catwalks" loading="lazy" decoding="async"></a>
-          <figcaption class="gallery__caption">The hangar from the side, with the ship and catwalks<small>Shot 9</small></figcaption>
-        </figure>
-        <figure class="gallery__item reveal">
-          <a class="gallery__open" href="../assets/img/spaceship-level/shot-09-1920.webp" data-lightbox="Spaceship Level · Shot 10"><img src="../assets/img/spaceship-level/shot-09-1280.webp" srcset="../assets/img/spaceship-level/shot-09-640.webp 640w, ../assets/img/spaceship-level/shot-09-1280.webp 1280w, ../assets/img/spaceship-level/shot-09-1920.webp 1920w" sizes="(min-width: 60rem) 80vw, 100vw" width="1920" height="1181" alt="The docked ship seen from above" loading="lazy" decoding="async"></a>
-          <figcaption class="gallery__caption">The docked ship seen from above<small>Shot 10</small></figcaption>
+          <a class="gallery__open" href="../assets/img/spaceship-level/sketch-2-1920.webp" data-lightbox="Spaceship Level · Puzzle sketch 2"><img src="../assets/img/spaceship-level/sketch-2-1280.webp" srcset="../assets/img/spaceship-level/sketch-2-640.webp 640w, ../assets/img/spaceship-level/sketch-2-1280.webp 1280w, ../assets/img/spaceship-level/sketch-2-1920.webp 1920w" sizes="(min-width: 60rem) 35vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="2643" alt="A pencil sketch in a notebook of a puzzle with three round switches feeding pipes into one line" loading="lazy" decoding="async"></a>
         </figure>
     </div>
   </section>
 
-  <section class="section" id="screenshots">
-    <div class="section-heading reveal"><span class="section-heading__index">02</span><h2 class="section-heading__title" data-scramble>More screenshots</h2><span class="section-heading__rule"></span></div>
+  <section class="section" id="playtesting">
+    <div class="section-heading reveal"><span class="section-heading__index">04</span><h2 class="section-heading__title" data-scramble>Blockout and playtesting</h2><span class="section-heading__rule"></span></div>
+    <div class="spread spread--sticky">
+      <figure class="spread__media spread__media--whole wipe reveal" data-gallery>
+        <a class="gallery__open" href="../assets/img/spaceship-level/early-blockout-1-1920.webp" data-lightbox="Spaceship Level · Early blockout 1"><img src="../assets/img/spaceship-level/early-blockout-1-1280.webp" srcset="../assets/img/spaceship-level/early-blockout-1-640.webp 640w, ../assets/img/spaceship-level/early-blockout-1-1280.webp 1280w, ../assets/img/spaceship-level/early-blockout-1-1920.webp 1920w" sizes="(min-width: 60rem) 45vw, 100vw" width="1920" height="978" alt="An early greybox puzzle room in red light, with a glowing pipe running between a switch and simple shapes" loading="lazy" decoding="async"></a>
+      </figure>
+      <div class="spread__text reveal">
+        <p>The next step was creating a low-fidelity, start-to-finish playable version of the level to test my assumptions. Once I had achieved that, I playtested it very thoroughly with a wide variety of players. I made sizeable changes to one of the newer puzzles, and to parts of the level flow where players were getting confused or frustrated.</p>
+      </div>
+    </div>
+    <div class="gallery gallery--pairs" data-gallery>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/early-blockout-2-1920.webp" data-lightbox="Spaceship Level · Early blockout 2"><img src="../assets/img/spaceship-level/early-blockout-2-1280.webp" srcset="../assets/img/spaceship-level/early-blockout-2-640.webp 640w, ../assets/img/spaceship-level/early-blockout-2-1280.webp 1280w, ../assets/img/spaceship-level/early-blockout-2-1920.webp 1920w" sizes="(min-width: 60rem) 70vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="978" alt="An early greybox room in red light, with a cube, a switch and a glowing pipe leading to a door" loading="lazy" decoding="async"></a>
+        </figure>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/early-blockout-3-1920.webp" data-lightbox="Spaceship Level · Early blockout 3"><img src="../assets/img/spaceship-level/early-blockout-3-1280.webp" srcset="../assets/img/spaceship-level/early-blockout-3-640.webp 640w, ../assets/img/spaceship-level/early-blockout-3-1280.webp 1280w, ../assets/img/spaceship-level/early-blockout-3-1920.webp 1920w" sizes="(min-width: 60rem) 70vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="987" alt="The early greybox hangar, with the ship under a starry opening and red railings on each floor" loading="lazy" decoding="async"></a>
+        </figure>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/early-blockout-4-1920.webp" data-lightbox="Spaceship Level · Early blockout 4"><img src="../assets/img/spaceship-level/early-blockout-4-1280.webp" srcset="../assets/img/spaceship-level/early-blockout-4-640.webp 640w, ../assets/img/spaceship-level/early-blockout-4-1280.webp 1280w, ../assets/img/spaceship-level/early-blockout-4-1920.webp 1920w" sizes="(min-width: 60rem) 70vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="932" alt="Greybox walkways and stairs around the hangar floor" loading="lazy" decoding="async"></a>
+        </figure>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/early-blockout-5-1920.webp" data-lightbox="Spaceship Level · Early blockout 5"><img src="../assets/img/spaceship-level/early-blockout-5-1280.webp" srcset="../assets/img/spaceship-level/early-blockout-5-640.webp 640w, ../assets/img/spaceship-level/early-blockout-5-1280.webp 1280w, ../assets/img/spaceship-level/early-blockout-5-1920.webp 1920w" sizes="(min-width: 60rem) 70vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="839" alt="Greybox platforms and stairs on the hangar floor" loading="lazy" decoding="async"></a>
+        </figure>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/early-blockout-6-1920.webp" data-lightbox="Spaceship Level · Early blockout 6"><img src="../assets/img/spaceship-level/early-blockout-6-1280.webp" srcset="../assets/img/spaceship-level/early-blockout-6-640.webp 640w, ../assets/img/spaceship-level/early-blockout-6-1280.webp 1280w, ../assets/img/spaceship-level/early-blockout-6-1920.webp 1920w" sizes="(min-width: 60rem) 70vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="932" alt="An early greybox puzzle room with yellow switches and glowing pipes across the floor" loading="lazy" decoding="async"></a>
+        </figure>
+    </div>
+  </section>
+
+  <section class="section" id="refresh">
+    <div class="section-heading reveal"><span class="section-heading__index">05</span><h2 class="section-heading__title" data-scramble>Visual refresh</h2><span class="section-heading__rule"></span></div>
+    <div class="spread spread--reverse">
+      <figure class="spread__media wipe reveal" data-gallery>
+        <a class="gallery__open" href="../assets/img/spaceship-level/shot-31-1920.webp" data-lightbox="Spaceship Level · Refreshed room 1"><img src="../assets/img/spaceship-level/shot-31-1280.webp" srcset="../assets/img/spaceship-level/shot-31-640.webp 640w, ../assets/img/spaceship-level/shot-31-1280.webp 1280w, ../assets/img/spaceship-level/shot-31-1920.webp 1920w" sizes="(min-width: 60rem) 45vw, 100vw" width="1920" height="1181" alt="Stairs and lockers in a bright room" loading="lazy" decoding="async"></a>
+      </figure>
+      <div class="spread__text reveal">
+        <p>My revised designs worked really well on further testing, and from here it was mostly set dressing and lighting tweaks. Some of the puzzle rooms also got a visual refresh, because I wanted them to feel much more grounded and believably a part of the ship, even with the bespoke puzzle elements.</p>
+      </div>
+    </div>
+    <div class="gallery gallery--pairs" data-gallery>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/shot-27-1920.webp" data-lightbox="Spaceship Level · Rotating puzzle platform"><img src="../assets/img/spaceship-level/shot-27-1280.webp" srcset="../assets/img/spaceship-level/shot-27-640.webp 640w, ../assets/img/spaceship-level/shot-27-1280.webp 1280w, ../assets/img/spaceship-level/shot-27-1920.webp 1920w" sizes="(min-width: 60rem) 80vw, 100vw" width="1920" height="1181" alt="A cargo bay with a yellow puzzle platform that rotates" loading="lazy" decoding="async"></a>
+          <figcaption class="gallery__caption">Rotating puzzle platform<small>The yellow platform rotates as part of a puzzle</small></figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/shot-24-1920.webp" data-lightbox="Spaceship Level · Refreshed room 3"><img src="../assets/img/spaceship-level/shot-24-1280.webp" srcset="../assets/img/spaceship-level/shot-24-640.webp 640w, ../assets/img/spaceship-level/shot-24-1280.webp 1280w, ../assets/img/spaceship-level/shot-24-1920.webp 1920w" sizes="(min-width: 60rem) 70vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="1181" alt="Storage racks and yellow floor markers" loading="lazy" decoding="async"></a>
+        </figure>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/shot-23-1920.webp" data-lightbox="Spaceship Level · Refreshed room 4"><img src="../assets/img/spaceship-level/shot-23-1280.webp" srcset="../assets/img/spaceship-level/shot-23-640.webp 640w, ../assets/img/spaceship-level/shot-23-1280.webp 1280w, ../assets/img/spaceship-level/shot-23-1920.webp 1920w" sizes="(min-width: 60rem) 70vw, (min-width: 40rem) 50vw, 100vw" width="1920" height="1181" alt="A bright hangar with storage racks and yellow floor lights" loading="lazy" decoding="async"></a>
+        </figure>
+    </div>
+  </section>
+
+  <section class="section" id="result">
+    <div class="section-heading reveal"><span class="section-heading__index">06</span><h2 class="section-heading__title" data-scramble>Final result</h2><span class="section-heading__rule"></span></div>
+    <div class="spread spread--sticky">
+      <div class="spread__media spread__media--whole spread__media--stack" data-gallery>
+        <figure class="spread__shot wipe reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/puzzle-platform.webp" data-lightbox="Spaceship Level · Puzzle platform"><picture><source srcset="../assets/img/spaceship-level/puzzle-platform.webp" type="image/webp" media="(prefers-reduced-motion: no-preference)"><img src="../assets/img/spaceship-level/puzzle-platform-poster.webp" width="702" height="555" alt="The player rides a moving platform up to a higher walkway in a bright hangar" loading="lazy" decoding="async"></picture></a>
+          <figcaption class="gallery__caption">Puzzle platform</figcaption>
+        </figure>
+        <figure class="spread__shot wipe reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/rising-platform.webp" data-lightbox="Spaceship Level · Rising platform"><picture><source srcset="../assets/img/spaceship-level/rising-platform.webp" type="image/webp" media="(prefers-reduced-motion: no-preference)"><img src="../assets/img/spaceship-level/rising-platform-poster.webp" width="770" height="537" alt="The player turns a pipe on a yellow switch, the storage room powers on, and a platform rises at the back" loading="lazy" decoding="async"></picture></a>
+          <figcaption class="gallery__caption">Rising platform</figcaption>
+        </figure>
+        <figure class="spread__shot wipe reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/complex-puzzle.webp" data-lightbox="Spaceship Level · Complex puzzle"><picture><source srcset="../assets/img/spaceship-level/complex-puzzle.webp" type="image/webp" media="(prefers-reduced-motion: no-preference)"><img src="../assets/img/spaceship-level/complex-puzzle-poster.webp" width="702" height="555" alt="The player works through a room of linked switches, turning pipes to connect power across the floor" loading="lazy" decoding="async"></picture></a>
+          <figcaption class="gallery__caption">Complex puzzle</figcaption>
+        </figure>
+      </div>
+      <div class="spread__text reveal">
+        <p>Using this process, I ended up with some very strong puzzles and a tight gameplay experience that doesn’t overstay its welcome. I have plenty of thoughts on how I could expand the gameplay and refine the location design, but for the purposes of this demonstration, I think it was very successful.</p>
+      </div>
+    </div>
+    <div class="gallery gallery--pairs" data-gallery>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/shot-12-1920.webp" data-lightbox="Spaceship Level · Generator room"><img src="../assets/img/spaceship-level/shot-12-1280.webp" srcset="../assets/img/spaceship-level/shot-12-640.webp 640w, ../assets/img/spaceship-level/shot-12-1280.webp 1280w, ../assets/img/spaceship-level/shot-12-1920.webp 1920w" sizes="(min-width: 60rem) 80vw, 100vw" width="1920" height="1181" alt="The generator room, with puzzle pipes running across the floor and ceiling" loading="lazy" decoding="async"></a>
+          <figcaption class="gallery__caption">Generator room<small>The pipes on the floor and ceiling are puzzle elements</small></figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/shot-08-1920.webp" data-lightbox="Spaceship Level · The hangar from the side, with the ship and catwalks"><img src="../assets/img/spaceship-level/shot-08-1280.webp" srcset="../assets/img/spaceship-level/shot-08-640.webp 640w, ../assets/img/spaceship-level/shot-08-1280.webp 1280w, ../assets/img/spaceship-level/shot-08-1920.webp 1920w" sizes="(min-width: 60rem) 80vw, 100vw" width="1920" height="1181" alt="The hangar from the side, with the ship and catwalks" loading="lazy" decoding="async"></a>
+          <figcaption class="gallery__caption">The hangar from the side, with the ship and catwalks</figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <a class="gallery__open" href="../assets/img/spaceship-level/shot-09-1920.webp" data-lightbox="Spaceship Level · The docked ship seen from above"><img src="../assets/img/spaceship-level/shot-09-1280.webp" srcset="../assets/img/spaceship-level/shot-09-640.webp 640w, ../assets/img/spaceship-level/shot-09-1280.webp 1280w, ../assets/img/spaceship-level/shot-09-1920.webp 1920w" sizes="(min-width: 60rem) 80vw, 100vw" width="1920" height="1181" alt="The docked ship seen from above" loading="lazy" decoding="async"></a>
+          <figcaption class="gallery__caption">The docked ship seen from above</figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section class="section section--closing" id="screenshots">
+    <div class="section-heading reveal"><span class="section-heading__index">07</span><h2 class="section-heading__title" data-scramble>More screenshots</h2><span class="section-heading__rule"></span></div>
     <ul class="thumbs reveal" data-gallery data-show-more="11">
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-00-1920.webp" data-lightbox="Spaceship Level · Shot 1"><img src="../assets/img/spaceship-level/shot-00-1280.webp" srcset="../assets/img/spaceship-level/shot-00-640.webp 640w, ../assets/img/spaceship-level/shot-00-1280.webp 1280w, ../assets/img/spaceship-level/shot-00-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A corridor with crates and a waypoint flag" loading="lazy" decoding="async"><span class="thumbs__number">1</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-13-1920.webp" data-lightbox="Spaceship Level · Shot 14"><img src="../assets/img/spaceship-level/shot-13-1280.webp" srcset="../assets/img/spaceship-level/shot-13-640.webp 640w, ../assets/img/spaceship-level/shot-13-1280.webp 1280w, ../assets/img/spaceship-level/shot-13-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A close view of a locker and orange equipment" loading="lazy" decoding="async"><span class="thumbs__number">14</span></a></li>
@@ -118,23 +284,20 @@
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-11-1920.webp" data-lightbox="Spaceship Level · Shot 12"><img src="../assets/img/spaceship-level/shot-11-1280.webp" srcset="../assets/img/spaceship-level/shot-11-640.webp 640w, ../assets/img/spaceship-level/shot-11-1280.webp 1280w, ../assets/img/spaceship-level/shot-11-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A pink-lit room with lockers and an upper walkway" loading="lazy" decoding="async"><span class="thumbs__number">12</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-14-1920.webp" data-lightbox="Spaceship Level · Shot 15"><img src="../assets/img/spaceship-level/shot-14-1280.webp" srcset="../assets/img/spaceship-level/shot-14-640.webp 640w, ../assets/img/spaceship-level/shot-14-1280.webp 1280w, ../assets/img/spaceship-level/shot-14-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="Crates and a locker beside the walkway" loading="lazy" decoding="async"><span class="thumbs__number">15</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-15-1920.webp" data-lightbox="Spaceship Level · Shot 16"><img src="../assets/img/spaceship-level/shot-15-1280.webp" srcset="../assets/img/spaceship-level/shot-15-640.webp 640w, ../assets/img/spaceship-level/shot-15-1280.webp 1280w, ../assets/img/spaceship-level/shot-15-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="Stairs down to a lit floor hatch" loading="lazy" decoding="async"><span class="thumbs__number">16</span></a></li>
-        <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-16-1920.webp" data-lightbox="Spaceship Level · Shot 17"><img src="../assets/img/spaceship-level/shot-16-1280.webp" srcset="../assets/img/spaceship-level/shot-16-640.webp 640w, ../assets/img/spaceship-level/shot-16-1280.webp 1280w, ../assets/img/spaceship-level/shot-16-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A dark, damaged corridor with debris" loading="lazy" decoding="async"><span class="thumbs__number">17</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-17-1920.webp" data-lightbox="Spaceship Level · Shot 18"><img src="../assets/img/spaceship-level/shot-17-1280.webp" srcset="../assets/img/spaceship-level/shot-17-640.webp 640w, ../assets/img/spaceship-level/shot-17-1280.webp 1280w, ../assets/img/spaceship-level/shot-17-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A dark corridor with broken wall panels" loading="lazy" decoding="async"><span class="thumbs__number">18</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-18-1920.webp" data-lightbox="Spaceship Level · Shot 19"><img src="../assets/img/spaceship-level/shot-18-1280.webp" srcset="../assets/img/spaceship-level/shot-18-640.webp 640w, ../assets/img/spaceship-level/shot-18-1280.webp 1280w, ../assets/img/spaceship-level/shot-18-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A hangar catwalk seen from above" loading="lazy" decoding="async"><span class="thumbs__number">19</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-19-1920.webp" data-lightbox="Spaceship Level · Shot 20"><img src="../assets/img/spaceship-level/shot-19-1280.webp" srcset="../assets/img/spaceship-level/shot-19-640.webp 640w, ../assets/img/spaceship-level/shot-19-1280.webp 1280w, ../assets/img/spaceship-level/shot-19-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="The hangar floor from above, with a bright opening" loading="lazy" decoding="async"><span class="thumbs__number">20</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-20-1920.webp" data-lightbox="Spaceship Level · Shot 21"><img src="../assets/img/spaceship-level/shot-20-1280.webp" srcset="../assets/img/spaceship-level/shot-20-640.webp 640w, ../assets/img/spaceship-level/shot-20-1280.webp 1280w, ../assets/img/spaceship-level/shot-20-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="An octagonal airlock corridor" loading="lazy" decoding="async"><span class="thumbs__number">21</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-21-1920.webp" data-lightbox="Spaceship Level · Shot 22"><img src="../assets/img/spaceship-level/shot-21-1280.webp" srcset="../assets/img/spaceship-level/shot-21-640.webp 640w, ../assets/img/spaceship-level/shot-21-1280.webp 1280w, ../assets/img/spaceship-level/shot-21-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="The hangar in low light with landing lights" loading="lazy" decoding="async"><span class="thumbs__number">22</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-22-1920.webp" data-lightbox="Spaceship Level · Shot 23"><img src="../assets/img/spaceship-level/shot-22-1280.webp" srcset="../assets/img/spaceship-level/shot-22-640.webp 640w, ../assets/img/spaceship-level/shot-22-1280.webp 1280w, ../assets/img/spaceship-level/shot-22-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A dark room with a boarding station sign" loading="lazy" decoding="async"><span class="thumbs__number">23</span></a></li>
-        <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-23-1920.webp" data-lightbox="Spaceship Level · Shot 24"><img src="../assets/img/spaceship-level/shot-23-1280.webp" srcset="../assets/img/spaceship-level/shot-23-640.webp 640w, ../assets/img/spaceship-level/shot-23-1280.webp 1280w, ../assets/img/spaceship-level/shot-23-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A bright hangar with storage racks and yellow floor lights" loading="lazy" decoding="async"><span class="thumbs__number">24</span></a></li>
-        <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-24-1920.webp" data-lightbox="Spaceship Level · Shot 25"><img src="../assets/img/spaceship-level/shot-24-1280.webp" srcset="../assets/img/spaceship-level/shot-24-640.webp 640w, ../assets/img/spaceship-level/shot-24-1280.webp 1280w, ../assets/img/spaceship-level/shot-24-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="Storage racks and yellow floor markers" loading="lazy" decoding="async"><span class="thumbs__number">25</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-26-1920.webp" data-lightbox="Spaceship Level · Shot 27"><img src="../assets/img/spaceship-level/shot-26-1280.webp" srcset="../assets/img/spaceship-level/shot-26-640.webp 640w, ../assets/img/spaceship-level/shot-26-1280.webp 1280w, ../assets/img/spaceship-level/shot-26-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="Stairs beside the ship in the hangar" loading="lazy" decoding="async"><span class="thumbs__number">27</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-28-1920.webp" data-lightbox="Spaceship Level · Shot 29"><img src="../assets/img/spaceship-level/shot-28-1280.webp" srcset="../assets/img/spaceship-level/shot-28-640.webp 640w, ../assets/img/spaceship-level/shot-28-1280.webp 1280w, ../assets/img/spaceship-level/shot-28-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="The ship under the open roof, wide view" loading="lazy" decoding="async"><span class="thumbs__number">29</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-29-1920.webp" data-lightbox="Spaceship Level · Shot 30"><img src="../assets/img/spaceship-level/shot-29-1280.webp" srcset="../assets/img/spaceship-level/shot-29-640.webp 640w, ../assets/img/spaceship-level/shot-29-1280.webp 1280w, ../assets/img/spaceship-level/shot-29-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="The ship and cargo in the hangar" loading="lazy" decoding="async"><span class="thumbs__number">30</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-30-1920.webp" data-lightbox="Spaceship Level · Shot 31"><img src="../assets/img/spaceship-level/shot-30-1280.webp" srcset="../assets/img/spaceship-level/shot-30-640.webp 640w, ../assets/img/spaceship-level/shot-30-1280.webp 1280w, ../assets/img/spaceship-level/shot-30-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="The hangar with stairs and the ship" loading="lazy" decoding="async"><span class="thumbs__number">31</span></a></li>
-        <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-31-1920.webp" data-lightbox="Spaceship Level · Shot 32"><img src="../assets/img/spaceship-level/shot-31-1280.webp" srcset="../assets/img/spaceship-level/shot-31-640.webp 640w, ../assets/img/spaceship-level/shot-31-1280.webp 1280w, ../assets/img/spaceship-level/shot-31-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="Stairs and lockers in a bright room" loading="lazy" decoding="async"><span class="thumbs__number">32</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-32-1920.webp" data-lightbox="Spaceship Level · Shot 33"><img src="../assets/img/spaceship-level/shot-32-1280.webp" srcset="../assets/img/spaceship-level/shot-32-640.webp 640w, ../assets/img/spaceship-level/shot-32-1280.webp 1280w, ../assets/img/spaceship-level/shot-32-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A damaged corridor with debris in neutral light" loading="lazy" decoding="async"><span class="thumbs__number">33</span></a></li>
         <li class="thumbs__item"><a class="thumbs__open" href="../assets/img/spaceship-level/shot-33-1920.webp" data-lightbox="Spaceship Level · Shot 34"><img src="../assets/img/spaceship-level/shot-33-1280.webp" srcset="../assets/img/spaceship-level/shot-33-640.webp 640w, ../assets/img/spaceship-level/shot-33-1280.webp 1280w, ../assets/img/spaceship-level/shot-33-1920.webp 1920w" sizes="(min-width: 60rem) 20vw, (min-width: 40rem) 33vw, 50vw" width="1920" height="1181" alt="A cargo platform with lit edges" loading="lazy" decoding="async"><span class="thumbs__number">34</span></a></li>
     </ul>
+    <div class="button-row section-actions reveal"><a class="button" href="https://drive.google.com/file/d/1QdIZ13BJ2zXVKfFjEv_tZZO0HAKEH8UP/view?usp=sharing" target="_blank" rel="noopener">Download the build ↗</a><span class="project-header__hint">Hosted on Google Drive</span></div>
   </section>
 
   <nav class="project-nav" aria-label="More projects">
