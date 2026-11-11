@@ -1485,6 +1485,43 @@
   }
 }
 
+/* Five cards: the first spans two columns, then two by two; on wide screens three then two. No card sits alone. */
+@media (min-width: 40rem) {
+  .card-grid--five {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-grid--five > :first-child {
+    grid-column: span 2;
+  }
+
+  .card-grid--five > :first-child .project-card__media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (min-width: 80rem) {
+  .card-grid--five {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .card-grid--five > * {
+    grid-column: span 2;
+  }
+
+  .card-grid--five > :nth-child(n + 4) {
+    grid-column: span 3;
+  }
+
+  .card-grid--five > :first-child .project-card__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .card-grid--five > :nth-child(n + 4) .project-card__media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
 /* === Thumbnail tiles, with a "+N more" tile (show-more.js) === */
 
 .thumbs {

@@ -79,7 +79,6 @@ STILLS = [
 ]
 
 ANIMATIONS = [
-    ('game-jam-map', 'flythrough', 'Game Jam/GameJamMap.gif'),
     ('solace', 'spline-roots', 'Solace/Personal_Project_Dynamic_Spline_Roots.gif'),
     ('solace', 'ship-animation', 'Solace/Personal_Project_Ship_Animation.gif'),
     ('solace', 'tile-animation', 'Solace/Personal_Project_Tile_Animation.gif'),
@@ -144,7 +143,6 @@ PREVIEWS = [
     ('spaceship-level', 'Spaceship Level/HighresScreenshot00023.png'),
     ('solace', 'Solace/Personal_Project_Tile_Animation.gif'),
     ('mythos-party', 'MythosParty/Mythos_Party_Capsule_Art_Revised.png'),
-    ('game-jam-map', 'Game Jam/GameJamMap.gif'),
     ('cathedral-scene', 'Cathedral Scene (WIP)/HighresScreenshot00035.png'),
     ('vfx-material-showcase', 'VFX & Material Showcase/reel-thumbnail.jpg'),
 ]
