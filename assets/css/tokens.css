@@ -65,6 +65,7 @@
   --text-heading: clamp(2rem, 4vw, 3.25rem);
   --text-title: clamp(2.25rem, 5vw, 4rem);
   --text-hero: clamp(4.5rem, 13vw, 12rem);
+  --text-surname: clamp(1.5rem, 4.2vw, 3.9rem);
 
   /* Spacing */
   --space-2xs: 0.25rem;

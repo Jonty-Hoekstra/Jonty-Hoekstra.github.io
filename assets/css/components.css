@@ -153,6 +153,16 @@
   line-height: 1;
 }
 
+/* The surname stacks under JONTY in small capitals, like the splash,
+   so the name block stays level with the avatar. */
+.panel__surname {
+  display: block;
+  margin-top: 0.2em;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
 .panel__role {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
